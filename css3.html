@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        /* New Mini Assignment Section - Clean & Small */
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAV BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav" style="background-color: #ae2012;">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🎨 CSS3 Complete Handwritten Notebook</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Basics, Selectors, Pseudo Elements &amp; Units</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to CSS (Cascading Style Sheets)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A styling language used to describe the presentation and aesthetic appearance of HTML elements.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> CSS controls element layouts, colors, fonts, device responsiveness, animations, and visual positioning across web pages.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Separates page content structure (HTML) from visual presentation and design styling (CSS).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Transforming a plain black text list into a vibrant, multi-column navigation menu with hover animations.</div>
+                <div class="code-box">body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}</div>
+                <div class="task-box">Task: Create an external stylesheet `style.css` and set the body background color to soft light blue.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Universal, Class & ID Selectors (*, . , #)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Target methods used to select HTML elements for styling.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `*` targets all elements (often used to reset margins). `.className` targets elements with a specific class. `#idName` targets a single unique element.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Provides precision targeting to style elements globally, as a group, or individually.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Using an ID for a navbar and a Class for buttons.</div>
+                <div class="code-box">* { margin: 0; }
+.btn { color: white; background: blue; }
+#main-nav { height: 60px; }</div>
+                <div class="task-box">Task: Write CSS rules using one Universal, one Class, and one ID selector.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Combinators (Descendant, Child)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Target rules based on the relationship between HTML elements.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Descendant (Space ` `) targets all nested elements. Child (`>`) targets only direct immediate children.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Scopes styles specifically without needing extra class names.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Styling links only inside the footer vs links directly inside a list item.</div>
+                <div class="code-box">div p { color: gray; } /* Descendant */
+ul &gt; li { list-style: none; } /* Direct Child */</div>
+                <div class="task-box">Task: Style only anchor tags nested immediately inside `&lt;nav&gt;` elements.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Pseudo-classes & Pseudo-elements</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Keywords that target specific states or specific parts of an element.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `:hover`, `:focus`, and `:nth-child` target user interactions or positions. `::before` and `::after` insert visual content via CSS.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Adds dynamic interactions (like button hover color) and decorative elements without altering HTML.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Changing background on hover, or adding quote marks before text.</div>
+                <div class="code-box">button:hover { background-color: #94d2bd; }
+h1::before { content: "📌 "; }</div>
+                <div class="task-box">Task: Make a link turn orange when hovered, and add an arrow symbol after it using `::after`.</div>
+            </div>
+            
+            <div class="topic-box">
+                <h2 class="topic-title">5. Colors & Units (Hex, RGBA, px, %, em)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Formats defining visual hues and spatial measurements.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Colors use Names (`red`), Hex (`#ff0000`), or RGBA (`rgba(255,0,0,0.5)` for transparency). Units use `px` (absolute), `%` (relative to parent), or `em`/`rem` (relative to font size).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Ensures accurate branding colors and scalable, accessible sizing.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Setting a semi-transparent background with a percentage width.</div>
+                <div class="code-box">div {
+  background: rgba(0, 0, 0, 0.8);
+  width: 50%;
+  font-size: 1.5rem;
+}</div>
+                <div class="task-box">Task: Create a container 80% wide with a Hex background color and 16px text.</div>
+            </div>
+
+            <!-- L1 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Practice basic selectors, colors, and hover states.</p>
+                <p><strong>Action:</strong> Open the CodePen link. Take the raw HTML and style it: add custom Hex colors, use child combinators to style lists, and add a hover state to the buttons.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Box Model, Typography &amp; Backgrounds</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. CSS Box Model (Margin, Border, Padding, Content)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The foundational conceptual box wrapping every rendered HTML element.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Composed of four layers ordered from inside out: **Content**, **Padding** (inner space), **Border**, and **Margin** (outer space).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Dictates spatial layout, element dimensions, and gaps between UI components.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Adding internal padding around text and outer margin spacing between adjacent cards.</div>
+                <div class="code-box">.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #005f73;
+  margin: 15px;
+}</div>
+                <div class="task-box">Task: Draw and label the CSS Box Model layers in your notebook. Note where `box-sizing: border-box` takes effect.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Typography & Text Styling</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> CSS rules governing text appearance, alignment, and spacing.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Properties include `font-family`, `text-align`, `line-height`, `letter-spacing`, and `text-transform`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enhances content readability, visual hierarchy, and brand typography.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Centering heading titles and capitalizing all letters.</div>
+                <div class="code-box">h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.4;
+}</div>
+                <div class="task-box">Task: Import a Google Font via `@import` and apply it to a paragraph with 1.6 line-height.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Backgrounds & Gradients</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Styling the visual layer behind HTML element content.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Use `background-color`, `background-image`, `background-size`, or `linear-gradient()`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Adds visual flair, hero banner wallpapers, or branded UI textures.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Setting a full-width background image that covers the container without repeating.</div>
+                <div class="code-box">.hero {
+  background: linear-gradient(135deg, #005f73, #0a9396);
+  background-size: cover;
+}</div>
+                <div class="task-box">Task: Create a div that acts as a square card. Apply a 2-color linear gradient background to it.</div>
+            </div>
+
+            <!-- L2 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Master the Box Model and Google Fonts.</p>
+                <p><strong>Action:</strong> Clone the FrontendMentor QR Code component. Focus on perfect margins, padding, box-shadow, centering, and importing the correct Google Font.</p>
+                <a href="https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H" target="_blank" class="mini-link">🔗 Clone Reference: FrontendMentor QR Component</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Borders, Display, Position &amp; Z-Index</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Borders & Border Radius</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Properties for drawing outer stroke lines and rounding container corners.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `border` sets width, style (solid/dashed), and color. `border-radius` rounds element corners.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Separates elements visually and creates pill-shaped buttons or circular avatars.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `border-radius: 50%` turns a perfect square container into a circle.</div>
+                <div class="code-box">.avatar {
+  border: 2px solid #333;
+  border-radius: 50%;
+}</div>
+                <div class="task-box">Task: Make a rectangular button and apply `border-radius: 20px` to make it pill-shaped.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Display & Visibility (Block, Inline, none)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Determines how an element flows in the layout and if it is visible.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `block` takes full width; `inline` takes only content width; `inline-block` allows width/height adjustments while flowing inline. `display: none` removes from document; `visibility: hidden` hides but keeps space.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Controls structural alignment of UI elements and toggles hiding.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Turning horizontal list links into block items.</div>
+                <div class="code-box">a { display: inline-block; width: 100px; }
+.hidden { display: none; }</div>
+                <div class="task-box">Task: Place three `&lt;div&gt;` blocks side-by-side using `display: inline-block`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Position (static, relative, absolute, fixed, sticky) & Z-Index</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Overriding default document flow to pin or move elements precisely.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `relative` acts as an anchor. `absolute` pins inside a relative parent. `fixed` pins to the screen. `sticky` toggles on scroll. `z-index` manages 3D front-to-back overlapping.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Builds sticky navbars, floating notification badges, and modals.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Pinning a navbar to the top of the screen.</div>
+                <div class="code-box">.navbar { position: sticky; top: 0; z-index: 100; }
+.badge { position: absolute; top: -5px; right: -5px; }</div>
+                <div class="task-box">Task: Create a "Back to Top" button fixed to the bottom-right corner of the window.</div>
+            </div>
+
+            <!-- L3 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Positioning and overlapping elements.</p>
+                <p><strong>Action:</strong> Build a mock user profile picture. Create a square div with a background image. Give it `position: relative`. Then, inside it, create an online status dot (green circle) with `position: absolute` pinned to the bottom right corner.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: Flexbox &amp; CSS Grid</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Flexbox (Containers, Direction, Alignment)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A 1-Dimensional layout system for aligning items in rows or columns.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Initiated with `display: flex`. Uses `justify-content` (main axis), `align-items` (cross axis), `flex-direction`, and `gap`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Perfect centering, space distribution, and navbar layouts.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Centering content perfectly dead-center inside a container.</div>
+                <div class="code-box">.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}</div>
+                <div class="task-box">Task: Use Flexbox to align a logo to the far left and navigation links to the far right inside a header.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. CSS Grid (Rows, Columns, Gap, Areas)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A 2-Dimensional layout system managing columns and rows simultaneously.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Initiated with `display: grid`. Define layouts using `grid-template-columns` (using `fr` units) and `grid-template-areas`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Simplifies complex full-page layouts and multi-card image galleries.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Defining a 3-column layout grid of equal width.</div>
+                <div class="code-box">.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}</div>
+                <div class="task-box">Task: Create a simple 2x2 grid featuring four colored squares.</div>
+            </div>
+
+            <!-- L4 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Flexbox vs Grid Master Layouts.</p>
+                <p><strong>Action:</strong> Clone the FrontendMentor Product Preview Card. Use Flexbox to align the internal card text and price vertically. Use Flexbox or Grid to place the image and the content side-by-side.</p>
+                <a href="https://www.frontendmentor.io/challenges/product-preview-card-component-GO7UmttRfa" target="_blank" class="mini-link">🔗 Clone Reference: FrontendMentor Product Card</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Responsive Design, Transitions & Animations</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. Responsive Design & Media Queries</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Techniques allowing website layouts to adapt to mobile, tablet, and desktop screens.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `@media` queries target specific viewport breakpoints to change CSS logic dynamically.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prevents horizontal scrolling and UI breaking on small smartphones.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Changing a 3-column grid to a 1-column grid on screens smaller than 768px.</div>
+                <div class="code-box">@media screen and (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}</div>
+                <div class="task-box">Task: Write a media query that hides a sidebar sidebar class completely on mobile devices.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. Transitions & Transforms</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Properties controlling smooth state changes and spatial manipulations.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `transition` dictates the timing/speed of CSS changes. `transform` scales, rotates, or moves elements.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Adds smooth interactivity when hovering over buttons or cards.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A button smoothly enlarging when hovered.</div>
+                <div class="code-box">.btn { transition: transform 0.3s ease; }
+.btn:hover { transform: scale(1.1); }</div>
+                <div class="task-box">Task: Make an image scale up slightly and rotate 5 degrees when the user hovers over it.</div>
+            </div>
+            
+            <div class="topic-box">
+                <h2 class="topic-title">16. CSS Keyframe Animations</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Multi-stage complex CSS animations running automatically.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Defined via `@keyframes` blocks and triggered by the `animation` property.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Animates loading spinners and attention-grabbing UI loops.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating a continually spinning loader icon.</div>
+                <div class="code-box">@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+.loader { animation: spin 1s linear infinite; }</div>
+                <div class="task-box">Task: Build a pulsing button animation using keyframes spanning 0% to 100%.</div>
+            </div>
+
+            <!-- L5 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Complete Responsive Interactivity.</p>
+                <p><strong>Action:</strong> Clone the FrontendMentor Interactive Rating Component. Ensure it works on desktop, stacks cleanly on mobile, and features smooth hover transitions on the rating numbers and submit button.</p>
+                <a href="https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI" target="_blank" class="mini-link">🔗 Clone Reference: FrontendMentor Rating Component</a>
+            </div>
+
+             <div style="text-align: center; margin-top: 30px;">
+                <a href="./javascript.html" class="menu-link" style="font-size: 20px;">➡️ Proceed to Next Subject: javascript Notes</a>
+            </div>
+
+             
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'CSS3_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

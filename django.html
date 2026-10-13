@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+     
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav" style="background-color: #ae2012;">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🎸 Django Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Python Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro, Installation &amp; Project Structure</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to Django &amp; Framework Architecture</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A high-level, "batteries-included" Python web framework that enables rapid development of secure and maintainable websites.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Django handles core backend functionality out of the box — including ORM, admin dashboard, user authentication, URL routing, security against CSRF/SQLi, and template rendering.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Eliminates repetitive boilerplate code so developers can move from concept to launch rapidly.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Instagram, Spotify, Disque, and Pinterest use Django for their server backend.</div>
+                <div class="code-box"># Django Philosophy: "Batteries Included" &amp; "Don't Repeat Yourself (DRY)"</div>
+                <div class="task-box">Task: Write 4 reasons in your notebook why Django is described as a "batteries-included" framework.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Django Installation &amp; Virtual Environment</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Setting up an isolated Python environment and installing the Django package using PIP.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `python -m venv venv` creates an isolated environment. Activating it ensures project dependency versions do not conflict globally. Django is installed via `pip install django`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Ensures project reproducibility and clean dependency management across local and production machines.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Checking installed Django version with `python -m django --version`.</div>
+                <div class="code-box">python -m venv venv
+# Windows: venv\Scripts\activate
+# Mac/Linux: source venv/bin/activate
+pip install django</div>
+                <div class="task-box">Task: Create a virtual environment, activate it, install Django, and print the installed version.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Creating First Django Project</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Initializing a root Django project folder structure containing configurations.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Executed via `django-admin startproject project_name`. Starts the development server using `python manage.py runserver`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Creates the master entry point and configuration repository for the web application.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Running server on `http://127.0.0.1:8000/` and seeing Django's default rocket launch screen.</div>
+                <div class="code-box">django-admin startproject mywebsite
+cd mywebsite
+python manage.py runserver</div>
+                <div class="task-box">Task: Create a Django project `mywebsite`, start the local development server, and view it in Chrome.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Django Project Structure Explanation</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Understanding the purpose of default generated project files.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> 
+                    <b>`manage.py`</b>: Command-line tool to manage project. 
+                    <b>`settings.py`</b>: Master configurations (DB, installed apps, media, static files). 
+                    <b>`urls.py`</b>: Global routing dispatcher. 
+                    <b>`wsgi.py` / `asgi.py`</b>: Web server deployment entry points.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Provides modular, predictable project organization across all Django applications.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Configuring `ALLOWED_HOSTS` or database credentials in `settings.py`.</div>
+                <div class="code-box"># mywebsite/
+# ├── manage.py
+# └── mywebsite/
+#     ├── __init__.py
+#     ├── settings.py
+#     ├── urls.py
+#     ├── asgi.py
+#     └── wsgi.py</div>
+                <div class="task-box">Task: Open `settings.py` and explain the function of `INSTALLED_APPS` and `DATABASES`.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Project Setup & Verification.</p>
+                <p><strong>Action:</strong> Set up a virtual environment, install Django, run `django-admin startproject first_project`, start `runserver`, and take a screenshot of the rocket landing page running on port 8000.</p>
+                <a href="https://docs.djangoproject.com/en/5.0/intro/tutorial01/" target="_blank" class="mini-link">🔗 Reference: Django Official Tutorial Part 1</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Project vs App & MVT Architecture</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. Creating First Django App</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Generating a standalone, self-contained sub-module focused on a specific feature set.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Generated using `python manage.py startapp app_name`. Creates `views.py`, `models.py`, `admin.py`, `apps.py`, and `tests.py`. Must be registered in `settings.py` under `INSTALLED_APPS`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Promotes modular code reuse across multiple projects.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating a `blog` app or `accounts` app inside an e-commerce project.</div>
+                <div class="code-box">python manage.py startapp blog
+
+# Inside settings.py:
+INSTALLED_APPS = [
+    ...
+    'blog',
+]</div>
+                <div class="task-box">Task: Create a Django app named `store` and register it in `INSTALLED_APPS`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Project VS App Difference</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Distinguishing between the overall website container and individual feature modules.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A **Project** is the entire web application composed of global configurations and multiple apps. An **App** is a portable, modular Web application that performs a specific function (e.g., Blog, Forum, User Auth).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Keeps large enterprise codebases modular, organized, and pluggable.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Project = E-Commerce Site; Apps = `cart`, `payment`, `inventory`, `users`.</div>
+                <div class="code-box"># 1 Project (e_commerce) = Many Apps (users + products + orders + billing)</div>
+                <div class="task-box">Task: Write a comparison table in your notebook highlighting 3 differences between a Django Project and App.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. MVT Architecture (Model - View - Template)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Django's variation of the classic MVC (Model-View-Controller) design pattern.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> 
+                    <b>Model</b>: Manages data structure and database schema. 
+                    <b>View</b>: Business logic that receives HTTP requests, interacts with Models, and renders Templates. 
+                    <b>Template</b>: Presentation layer (HTML mixed with Django Template Language). <i>Django framework acts as the Controller.</i></div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enforces complete separation of concerns between database logic, business logic, and UI display.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> URL -> View checks Model -> View renders Template -> Client receives HTML response.</div>
+                <div class="code-box"># Client Request ---> urls.py ---> views.py <---> models.py (DB)
+#                                    |
+#                                    v
+#                               templates/ (HTML) ---> Client Response</div>
+                <div class="task-box">Task: Draw the Django MVT request-response lifecycle flowchart in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Views &amp; URL Dispatcher Example</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Handling HTTP requests and returning HTTP responses via mapped URLs.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A View is a Python function/class accepting an `HttpRequest` object and returning an `HttpResponse` or rendered template. `urls.py` uses `path()` to map URL endpoints to Views.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Routes user web requests to the correct Python logic handler.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Returning a "Hello World" text response when visiting `/home/`.</div>
+                <div class="code-box"># blog/views.py
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("&lt;h1&gt;Welcome to Somesh Hadve's Blog!&lt;/h1&gt;")
+
+# mywebsite/urls.py
+from django.urls import path
+from blog.views import home
+
+urlpatterns = [
+    path('home/', home),
+]</div>
+                <div class="task-box">Task: Create a view function `about` that returns your name and bio, and route it to `/about/`.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> First App, Views & URL Routing.</p>
+                <p><strong>Action:</strong> Create an app named `pages`. Write two view functions (`home` and `contact`) and map them in `urls.py`. Test both routes (`/` and `/contact/`) in your browser.</p>
+                <a href="https://docs.djangoproject.com/en/5.0/topics/http/urls/" target="_blank" class="mini-link">🔗 Reference: Django URL Dispatcher Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Database, Models, Migrations & Templates</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Django Database Configuration (SQLite &amp; MySQL)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Configuring backend database engines inside `settings.py`.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Defaults to zero-config SQLite (`db.sqlite3`). Can be switched to MySQL using `django.db.backends.mysql` with `NAME`, `USER`, `PASSWORD`, `HOST`, and `PORT`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Connects Django's ORM seamlessly to development or production databases.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Switching settings from default SQLite to local XAMPP MySQL.</div>
+                <div class="code-box"># settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}</div>
+                <div class="task-box">Task: Connect your Django project to a local MySQL database created in XAMPP.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Django Models (ORM)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Defining database tables using pure Python classes without writing raw SQL.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Classes inheriting from `models.Model`. Class attributes represent database table columns defined by field types (`CharField`, `IntegerField`, `TextField`, `DateTimeField`, `ForeignKey`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Provides Object-Relational Mapping (ORM) to query databases using Python objects safely.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Defining a `Article` model.</div>
+                <div class="code-box"># blog/models.py
+from django.db import models
+
+class Article(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title</div>
+                <div class="task-box">Task: Create a `Product` model with `name`, `price`, `stock`, and `description` fields.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Database Migrations</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Translating Python Model changes into executable database SQL schema updates.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Two-step process: 1) `python manage.py makemigrations` creates migration blueprint files. 2) `python manage.py migrate` applies those blueprints to create/alter database tables.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Version-controls database schema alterations safely across team environments.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating database tables after defining new models.</div>
+                <div class="code-box">python manage.py makemigrations
+python manage.py migrate</div>
+                <div class="task-box">Task: Run migrations on your project and verify created tables inside phpMyAdmin or SQLite viewer.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Django Templates &amp; Template Language (DTL)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Dynamic HTML files enriched with Python-like variables and control tags.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Rendered via `render(request, 'template.html', context)`. Uses `{{ variable }}` for values, `{% for %}`, `{% if %}` for logic loops/conditions, and template inheritance (`{% extends %}`, `{% block %}`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Generates dynamic client-side HTML pages rendered directly by the server.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Rendering a list of database articles inside HTML.</div>
+                <div class="code-box">&lt;!-- templates/articles.html --&gt;
+&lt;h1&gt;Article List&lt;/h1&gt;
+&lt;ul&gt;
+  {% for article in articles %}
+    &lt;li&gt;{{ article.title }} - {{ article.created_at }}&lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;</div>
+                <div class="task-box">Task: Render a dynamic product catalog template using `{% for %}` loops and DTL syntax.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Models, ORM, Migrations & Dynamic Templates.</p>
+                <p><strong>Action:</strong> Create a `Product` model, run `makemigrations` & `migrate`, add 3 products via Django Shell (`python manage.py shell`), and render them on an HTML page using Django Templates.</p>
+                <a href="https://docs.djangoproject.com/en/5.0/topics/db/models/" target="_blank" class="mini-link">🔗 Reference: Django Models & ORM Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: Authentication, CBV & Admin Customization</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Django Authentication System</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Built-in user management framework handling registration, login, logout, and password hashing.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses `django.contrib.auth` models (`User`), forms (`UserCreationForm`, `AuthenticationForm`), and views (`login`, `logout`, `@login_required` decorator).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Provides production-ready, highly secure user authentication out of the box.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Protecting a dashboard view so only logged-in users can access it.</div>
+                <div class="code-box">from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html')</div>
+                <div class="task-box">Task: Build a user signup and login page using Django's built-in `UserCreationForm`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. Class-Based Views (CBV) vs Function-Based Views (FBV)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Two different architectural styles for structuring Django View business logic.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **FBVs** are explicit Python functions handling requests via `if request.method == 'POST':`. **CBVs** use object-oriented Python classes (`ListView`, `DetailView`, `CreateView`, `UpdateView`, `DeleteView`) to reuse common CRUD patterns.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> CBVs drastically reduce code lines for standard database CRUD operations.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Displaying a list using `ListView` CBV.</div>
+                <div class="code-box">from django.views.generic import ListView
+from .models import Article
+
+class ArticleListView(ListView):
+    model = Article
+    template_name = 'article_list.html'
+    context_object_name = 'articles'</div>
+                <div class="task-box">Task: Re-write a product listing view using Django's generic `ListView` Class-Based View.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. Django Admin Customization</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Customizing Django's automatic built-in administrative dashboard interface.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Created using `python manage.py createsuperuser`. Models are registered in `admin.py` using `admin.site.register()` or `ModelAdmin` classes (`list_display`, `search_fields`, `list_filter`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Gives site administrators an instant CMS dashboard to manage database records visually.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Adding search bars and column filters to the Admin panel for Products.</div>
+                <div class="code-box"># blog/admin.py
+from django.contrib import admin
+from .models import Article
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    search_fields = ('title', 'content')
+    list_filter = ('created_at',)</div>
+                <div class="task-box">Task: Create a superuser account, register your `Product` model, and add `list_display` columns.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Admin Panel & Authentication Dashboard.</p>
+                <p><strong>Action:</strong> Register superuser, customize admin list views for your models, and build a protected `/dashboard/` page restricted with `@login_required`.</p>
+                <a href="https://docs.djangoproject.com/en/5.0/ref/contrib/admin/" target="_blank" class="mini-link">🔗 Reference: Django Admin Site Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: File Uploads, Testing & Deployment</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">16. File Upload &amp; Media Handling</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Managing user-uploaded static assets like profile images or PDF documents.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Requires `ImageField` or `FileField` in models (needs `Pillow` library). HTML forms must include `enctype="multipart/form-data"`. Configured via `MEDIA_URL` and `MEDIA_ROOT` in `settings.py`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows users to upload avatars, product thumbnails, or attachments safely.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Adding a product image field to a model.</div>
+                <div class="code-box"># settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# models.py
+image = models.ImageField(upload_to='products/')
+
+# HTML Form
+&lt;form method="POST" enctype="multipart/form-data"&gt;</div>
+                <div class="task-box">Task: Install `Pillow`, add an `image` field to your Product model, and render the uploaded image on screen.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">17. Django Testing</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Writing automated unit tests to verify application views, models, and URLs.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Written inside `tests.py` using Django's built-in `TestCase` class. Executed via command `python manage.py test`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Ensures code stability and catches regressions before shipping updates to production.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Testing if a HTTP GET request returns status code 200 OK.</div>
+                <div class="code-box"># blog/tests.py
+from django.test import TestCase
+
+class HomePageTest(TestCase):
+    def test_home_page_status_code(self):
+        response = self.client.get('/home/')
+        self.assertEqual(response.status_code, 200)</div>
+                <div class="task-box">Task: Write a unit test that verifies your `/about/` page returns HTTP status 200 OK.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">18. Django Deployment Basics</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Publishing a Django application to live cloud servers (Heroku, Render, AWS, PythonAnywhere).</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Involves setting `DEBUG = False`, configuring `ALLOWED_HOSTS`, collecting static files using `python manage.py collectstatic`, using WSGI servers like `Gunicorn`, and securing secrets with environment variables.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Makes your application publicly accessible on the internet securely.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Production settings preparation.</div>
+                <div class="code-box"># settings.py for production:
+DEBUG = False
+ALLOWED_HOSTS = ['yourdomain.com', 'localhost']
+STATIC_ROOT = BASE_DIR / 'staticfiles'</div>
+                <div class="task-box">Task: Prepare your Django app for production by setting up static root and running `collectstatic`.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Media Uploads & Production Checks.</p>
+                <p><strong>Action:</strong> Configure `MEDIA_ROOT` and `MEDIA_URL`, build an image upload form for products, and run `python manage.py test` to verify all views pass tests.</p>
+                <a href="https://docs.djangoproject.com/en/5.0/topics/files/" target="_blank" class="mini-link">🔗 Reference: Managing Uploaded Files Docs</a>
+            </div>
+
+
+             
+             
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="./expressjs.html" class="menu-link" style="font-size: 20px;">➡️ Next Subject: ExpressJS Notes</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'Django_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

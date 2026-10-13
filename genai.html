@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+         
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav" style="background-color: #ae2012;">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🤖 Generative AI Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack AI Engineering Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Foundations of GenAI, LLMs &amp; Prompt Engineering</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Introduction to Generative AI vs Discriminative AI</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The distinction between Artificial Intelligence models that generate new content versus those that classify existing data.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Discriminative AI** models evaluate conditional probabilities `P(Y|X)` to classify or predict labels (e.g., spam vs ham, object detection). **Generative AI** models learn joint probability distributions `P(X,Y)` to generate novel text, code, images, audio, or video synthetic data.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables software engineers to build creative, conversational, and autonomous content generation systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Discriminative = Spam Filter / Face Recognition; Generative = ChatGPT, Midjourney, GitHub Copilot.</div>
+                <div class="code-box"># Discriminative: Input Data ---&gt; Model ---&gt; Decision / Category Label
+# Generative: Input Prompt ---&gt; Model ---&gt; Brand New Synthetic Content</div>
+                <div class="task-box">Task: Write 3 differences between Discriminative ML models and Generative AI models in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Large Language Models (LLMs) &amp; Transformer Architecture</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Deep learning neural network models trained on vast textual datasets using self-attention mechanisms.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> LLMs (GPT-4, Claude, Llama 3) rely on the **Transformer Architecture** (Vaswani et al., 2017). They utilize **Self-Attention** to process entire text sequences in parallel, learning deep contextual relationships between words regardless of distance.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers natural language understanding, reasoning, translation, code generation, and autonomous agents.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Understanding the word "bank" in "river bank" vs "financial bank" based on surrounding attention context.</div>
+                <div class="code-box"># Transformer Self-Attention Formula:
+# Attention(Q, K, V) = softmax((Q * K^T) / sqrt(d_k)) * V</div>
+                <div class="task-box">Task: Draw a simplified diagram of the Transformer Encoder-Decoder architecture in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Tokens, Context Window &amp; Temperature Parameters</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The fundamental processing units and hyperparameter controls governing LLM inference behavior.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Tokens** are word fragments (~4 characters or 0.75 words). **Context Window** is the maximum token capacity an LLM can process in a single prompt+response session. **Temperature** (0.0 to 1.0) controls randomness/creativity (0.0 = deterministic/fact-based; 1.0 = creative/diverse).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows developers to fine-tune LLM outputs for precise use cases like strict code generation vs creative writing.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Setting `temperature: 0.0` for SQL generation vs `temperature: 0.8` for brainstorming marketing copy.</div>
+                <div class="code-box">// Token Approximation Rule of Thumb:
+// 1000 Tokens ≈ 750 Words
+
+// Low Temp (0.2)  -&gt; Consistent, factual, deterministic
+// High Temp (0.8) -&gt; Creative, varied, surprising</div>
+                <div class="task-box">Task: Calculate how many tokens approximately exist in a 3000-word article and select the ideal temperature for JSON parsing.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Prompt Engineering Techniques (Zero-Shot, Few-Shot &amp; Chain-of-Thought)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The practice of structuring textual input queries to guide LLMs toward optimal, accurate outputs.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Zero-Shot**: Direct prompt without examples. **Few-Shot**: Including 2-3 input/output examples in the prompt. **Chain-of-Thought (CoT)**: Instructing the LLM to "think step-by-step" before returning its final answer.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Significantly increases LLM reasoning accuracy, reduces hallucinations, and enforces output formatting.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Using Chain-of-Thought prompting to solve complex math logic problems.</div>
+                <div class="code-box"># Chain-of-Thought Prompt Pattern:
+Prompt = """
+Q: Roger has 5 tennis balls. He buys 2 more cans of 3 balls. How many balls does he have?
+A: Let's think step by step:
+1. Roger starts with 5 balls.
+2. 2 cans with 3 balls = 6 balls.
+3. 5 + 6 = 11.
+Answer is 11.
+
+Q: [Insert target complex question]
+A: Let's think step by step:
+"""</div>
+                <div class="task-box">Task: Write a Few-Shot prompt that reliably converts raw user feedback into structured JSON sentiment analysis.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Prompt Engineering & Hyperparameter Experimentation.</p>
+                <p><strong>Action:</strong> Open OpenAI Playground / Google AI Studio. Compare output accuracy on a logic puzzle using Zero-Shot vs Chain-of-Thought prompting, and observe response variance across temperature 0.0 vs 0.9.</p>
+                <a href="https://platform.openai.com/playground" target="_blank" class="mini-link">🔗 Reference: OpenAI Playground Testing Suite</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: API Integration, OpenAI SDK &amp; LangChain</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. OpenAI API &amp; SDK Integration (NodeJS / Python)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Programmatically connecting web applications to cloud-hosted LLM endpoints using official SDK libraries.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses official client packages (`openai` in Node/Python). Authenticates using API keys passed via environment variables (`process.env.OPENAI_API_KEY`). Calls chat completion endpoints (`openai.chat.completions.create()`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Integrates intelligence directly into custom full-stack web applications, chatbots, and backend services.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Executing a Chat Completion request in NodeJS.</div>
+                <div class="code-box">import OpenAI from 'openai';
+
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+async function generateSummary(text) {
+  const response = await openai.chat.completions.create({
+    model: 'gpt-4o-mini',
+    messages: [{ role: 'user', content: `Summarize: ${text}` }],
+    temperature: 0.3,
+  });
+  return response.choices[0].message.content;
+}</div>
+                <div class="task-box">Task: Set up the `openai` SDK in NodeJS or Python and make an API call returning a 2-sentence summary of web development.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Message Roles (System, User, Assistant)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The structured conversational context array passed to LLM chat completion APIs.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **System**: Sets behavioral instructions, persona, and rules. **User**: Represents input from the end-user. **Assistant**: Represents previous responses generated by the LLM model (used to maintain conversation history).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enforces strict guardrails on LLM behavior and preserves multi-turn conversation memory.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Defining a strict coding tutor persona using the System role.</div>
+                <div class="code-box">const messages = [
+  { role: "system", content: "You are a helpful coding assistant. Answer ONLY in clean JavaScript code." },
+  { role: "user", content: "How do I reverse an array?" },
+  { role: "assistant", content: "const reversed = arr.reverse();" },
+  { role: "user", content: "How about without mutating original?" }
+];</div>
+                <div class="task-box">Task: Build a conversation messages array that enforces a customer support persona that speaks only in Hindi/English mix.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Function Calling &amp; Structured JSON Output</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Enabling LLMs to output strictly structured JSON schema objects and trigger external backend code functions.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Developers pass a JSON schema describing available backend functions (`tools`). The LLM detects when a tool should be executed and returns structured JSON arguments instead of text. `response_format: { type: "json_object" }` guarantees valid JSON output.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Connects natural language inputs directly to backend database queries, external APIs, and business logic.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Passing a `get_weather(location)` tool definition to the LLM.</div>
+                <div class="code-box">const response = await openai.chat.completions.create({
+  model: "gpt-4o",
+  messages: [{ role: "user", content: "What is the weather in Mumbai?" }],
+  tools: [{
+    type: "function",
+    function: {
+      name: "get_weather",
+      description: "Get current weather for a city",
+      parameters: {
+        type: "object",
+        properties: { location: { type: "string" } },
+        required: ["location"]
+      }
+    }
+  }]
+});</div>
+                <div class="task-box">Task: Define a function calling schema for a `search_database(query, limit)` tool.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. LangChain Basics &amp; Chaining Concepts</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A popular framework designed to simplify building complex applications powered by LLMs.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> LangChain provides abstractions for Prompt Templates, LLM wrappers, Output Parsers, and Sequential Chains (combining multiple LLM calls where output of step A becomes input to step B).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Standardizes complex AI pipelines, agentic workflows, and document processing systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating a PromptTemplate + LLM chain in LangChain.</div>
+                <div class="code-box">import { ChatOpenAI } from "@langchain/openai";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+
+const prompt = ChatPromptTemplate.fromTemplate("Explain {topic} in 1 sentence.");
+const model = new ChatOpenAI({ model: "gpt-4o-mini" });
+
+const chain = prompt.pipe(model);
+const response = await chain.invoke({ topic: "Docker" });</div>
+                <div class="task-box">Task: Build a LangChain prompt pipeline that takes a product name and outputs a target tagline.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> OpenAI API Integration & Function Calling.</p>
+                <p><strong>Action:</strong> Write a NodeJS or Python script using the `openai` SDK. Implement Function Calling where asking "Check stock for Product 101" triggers a mock backend inventory lookup function.</p>
+                <a href="https://platform.openai.com/docs/guides/function-calling" target="_blank" class="mini-link">🔗 Reference: OpenAI Function Calling Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Embeddings, Vector DBs & RAG Architecture</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Text Embeddings &amp; Vector Representations</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Converting raw text into dense numerical vector arrays that capture semantic meaning.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Embedding models (e.g., `text-embedding-3-small`) convert text into high-dimensional vector arrays (e.g., 1536 floating-point numbers). Texts with similar meanings sit close together in vector space measured by **Cosine Similarity**.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers semantic search, document similarity, recommendation engines, and RAG systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> "King" - "Man" + "Woman" ≈ "Queen" in vector embedding space.</div>
+                <div class="code-box">const embedding = await openai.embeddings.create({
+  model: "text-embedding-3-small",
+  input: "Full Stack Web Development Notes",
+});
+console.log(embedding.data[0].embedding); // Array of 1536 float numbers</div>
+                <div class="task-box">Task: Explain in your notebook why keyword search fails on synonyms while Vector Semantic Search succeeds.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Vector Databases (Pinecone, ChromaDB, Pgvector)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Specialized database engines optimized to store, index, and query high-dimensional vector embeddings efficiently.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses Approximate Nearest Neighbor (ANN) algorithms (HNSW, IVF) to query millions of vectors in milliseconds. Popular platforms: **Pinecone** (Cloud), **ChromaDB** (Open-Source), **Pgvector** (PostgreSQL extension), **Qdrant**.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Serves as the long-term memory store for RAG applications and enterprise knowledge bases.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Querying top 3 most relevant document chunks matching a user query vector.</div>
+                <div class="code-box">// Querying Pinecone Vector Store
+const queryVector = await getEmbedding("How do I setup Django?");
+const results = await pineconeIndex.query({
+  vector: queryVector,
+  topK: 3,
+  includeMetadata: true
+});</div>
+                <div class="task-box">Task: List 3 vector databases and contrast Pinecone (Cloud) with ChromaDB (Local).</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Retrieval-Augmented Generation (RAG) Architecture</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A pattern that enhances LLM responses by retrieving relevant external context data from custom document stores before generating an answer.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Architecture pipeline: 1) User submits question. 2) Query converted to vector embedding. 3) Vector DB retrieves top matching document chunks. 4) Retrieved chunks injected into LLM System Prompt as context. 5) LLM generates accurate, grounded answer.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Eliminates LLM hallucinations, enables querying private company PDFs/data, and bypasses LLM training cutoff limits.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Building a chatbot that answers questions from an internal 200-page HR Policy PDF.</div>
+                <div class="code-box"># RAG Pipeline Flow:
+# Query --&gt; Embedding --&gt; Vector DB Search --&gt; Context Chunks + Query --&gt; LLM --&gt; Grounded Answer</div>
+                <div class="task-box">Task: Draw the complete 5-step RAG architecture flowchart in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Document Chunking &amp; Semantic Search Strategies</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Splitting large documents into optimal smaller text segments for embedding and retrieval.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Chunking strategies include Fixed-Size Chunking (e.g., 500 tokens with 50-token overlap) and Recursive Character Text Splitting (splitting by paragraphs, sentences, words). Overlap preserves context across boundaries.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Fits retrieved text cleanly inside the LLM context window while maintaining semantic completeness.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Chunking a 50-page PDF manual into 300-word overlapping chunks.</div>
+                <div class="code-box">import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
+
+const splitter = new RecursiveCharacterTextSplitter({
+  chunkSize: 500,
+  chunkOverlap: 50,
+});
+const docs = await splitter.createDocuments([rawPdfText]);</div>
+                <div class="task-box">Task: Write a script that splits a long text string into 200-character chunks with a 20-character overlap.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Complete RAG System Pipeline.</p>
+                <p><strong>Action:</strong> Build a mini RAG script: Take a custom text document, chunk it using LangChain/JS, generate vector embeddings via OpenAI, store in memory/Chroma, and answer a user question grounded in retrieved context.</p>
+                <a href="https://js.langchain.com/docs/use_cases/question_answering/" target="_blank" class="mini-link">🔗 Reference: LangChain RAG Implementation Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: AI Agents, Tools & Local Execution</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Autonomous AI Agents &amp; Tool Calling (ReAct Framework)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Systems where an LLM acts as an autonomous reasoning engine that decides which external tools to call to achieve a goal.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses the **ReAct (Reasoning + Acting)** framework loop: 1) Thought (LLM analyzes goal). 2) Action (LLM selects tool &amp; arguments). 3) Observation (System executes tool &amp; returns result). Loop repeats until final answer is reached.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables AI to perform complex multi-step tasks independently (e.g., search web, summarize, execute code, send email).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> An AI Agent given "Find product price on Amazon and email me the summary".</div>
+                <div class="code-box"># ReAct Loop Cycle:
+# Goal ---&gt; Thought: "I need data" ---&gt; Action: [Search API] ---&gt; Observation: Data received ---&gt; Final Answer</div>
+                <div class="task-box">Task: Trace a ReAct loop execution log for an agent tasked with booking a flight ticket.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. Agent Memory &amp; Conversation State Management</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Maintaining state and short-term/long-term memory across agent execution steps.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses **Buffer Memory** (full history), **Summary Memory** (LLM summarizes past turns), or **Vector Memory** (retrieving relevant past memories via semantic search). Preserved across sessions using databases (Redis, PostgreSQL).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prevents context window overflow and ensures multi-turn chatbots remember user context permanently.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Summarizing a 50-turn customer service chat into 3 bullet points to save context space.</div>
+                <div class="code-box">// Short-term Memory: Last N messages in context
+// Long-term Memory: Summarized state saved in Redis / Vector DB</div>
+                <div class="task-box">Task: Implement a memory manager function that trims message arrays to keep only the last 6 messages.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. Local LLM Execution (Ollama, LM Studio &amp; Hugging Face)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Running open-weight Large Language Models locally on developer machines or private servers without cloud API dependencies.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Tools like **Ollama** or **LM Studio** download and run quantized models (Llama 3, Mistral, Gemma, Phi-3) locally, exposing OpenAI-compatible local HTTP REST API endpoints (`http://localhost:11434`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Ensures 100% data privacy, zero API usage costs, and offline development capabilities.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Running `ollama run llama3` in terminal and querying it locally via API.</div>
+                <div class="code-box"># Terminal:
+ollama run llama3
+
+# Fetching local Ollama endpoint in JS:
+const response = await fetch('http://localhost:11434/api/generate', {
+  method: 'POST',
+  body: JSON.stringify({ model: 'llama3', prompt: 'Hello local LLM!' })
+});</div>
+                <div class="task-box">Task: Install Ollama locally, pull Llama 3 or Phi-3, and send a prompt via local curl or JS fetch request.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Local LLM Execution & Agent Tool Calling.</p>
+                <p><strong>Action:</strong> Run Ollama locally with Llama 3. Build a NodeJS script connecting to `localhost:11434` that acts as a local research agent with access to a local file-search tool.</p>
+                <a href="https://ollama.com/" target="_blank" class="mini-link">🔗 Reference: Ollama Local LLM Runner Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Guardrails, Streaming & Production GenAI</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">16. AI Safety, Moderation APIs &amp; Content Guardrails</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Enforcing strict safety policies to prevent prompt injection attacks, toxic content, and data leaks in production AI systems.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses **OpenAI Moderation API** or guardrail frameworks (NeMo Guardrails, Llama Guard) to inspect inputs/outputs for hate speech, self-harm, sexual content, and system prompt override attacks before processing.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Protects enterprise reputation and guarantees compliance with AI safety standards.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Checking user input against the free OpenAI Moderation API endpoint before passing to GPT-4.</div>
+                <div class="code-box">const moderation = await openai.moderations.create({ input: userInput });
+if (moderation.results[0].flagged) {
+  throw new Error("Input violated AI safety guidelines.");
+}</div>
+                <div class="task-box">Task: Implement input moderation checking before sending queries to an LLM completion call.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">17. Token Streaming (Server-Sent Events) &amp; Cost Optimization</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Streaming LLM response tokens back to the user interface in real-time as they are generated.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses Server-Sent Events (SSE) and HTTP chunked transfer encoding (`stream: true`). Eliminates waiting 10 seconds for full completions by displaying text character-by-character as tokens arrive. Cost optimization uses cheaper models (e.g., `gpt-4o-mini`) and aggressive prompt caching.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Delivers instantaneous perceived user responsiveness matching ChatGPT UI experience.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Streaming completion tokens to terminal or response stream.</div>
+                <div class="code-box">const stream = await openai.chat.completions.create({
+  model: 'gpt-4o-mini',
+  messages: [{ role: 'user', content: 'Write a story' }],
+  stream: true,
+});
+
+for await (const chunk of stream) {
+  process.stdout.write(chunk.choices[0]?.delta?.content || '');
+}</div>
+                <div class="task-box">Task: Write a script that streams OpenAI chat completion tokens to `process.stdout` in real-time.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Real-Time Token Streaming UI & Safety Guardrails.</p>
+                <p><strong>Action:</strong> Build a Next.js or Express endpoint that accepts a user prompt, validates it against Moderation API, and streams the response tokens back to the client using Server-Sent Events (SSE).</p>
+                <a href="https://platform.openai.com/docs/api-reference/chat/create#chat-create-stream" target="_blank" class="mini-link">🔗 Reference: OpenAI Streaming API Guide</a>
+            </div>
+
+
+             
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="deployment.html" class="menu-link" style="font-size: 20px;">➡️ Next Subject: Deployment</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'Generative_AI_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav" style="background-color: #ae2012;">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+         
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">⚡ JavaScript Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro, Variables & Data Types</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to JavaScript & Types of JS</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A dynamic, high-level programming language primarily used for web interactivity.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> JS adds logic and interactivity to static HTML/CSS. It can be written internally inside `&lt;script&gt;` tags or externally in `.js` files.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used to manipulate the DOM, validate forms, handle events, and fetch data.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Clicking a button to show a popup alert on the screen.</div>
+                <div class="code-box">&lt;!-- Internal --&gt; &lt;script&gt; alert("Hello!"); &lt;/script&gt;
+&lt;!-- External --&gt; &lt;script src="app.js"&gt;&lt;/script&gt;</div>
+                <div class="task-box">Task: Link an external `app.js` file to your HTML and print "Connected" in the console.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Variables & Data Types</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Containers for storing data values.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> JS uses `let`, `const`, and `var`. Data Types include String, Int/Float (Number), Boolean (true/false), Null (empty), and Undefined (unassigned).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows programs to store user inputs and perform calculations.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Storing a username as a String and age as a Number.</div>
+                <div class="code-box">let name = "Somesh"; // String
+let age = 25; // Number (Int)
+let isTrainer = true; // Boolean
+let data = null; // Null</div>
+                <div class="task-box">Task: Create variables representing your name, age, and a boolean indicating if you like coding.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. The typeof Operator</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A command to check the data type of a given value or variable.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Returns a string indicating the type of the unevaluated operand.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Crucial for debugging and validating data before performing operations.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Checking if a user input is a number or text.</div>
+                <div class="code-box">console.log(typeof "Hello"); // Outputs: "string"
+console.log(typeof 42); // Outputs: "number"</div>
+                <div class="task-box">Task: Use console.log and typeof to check what type a `null` value returns in JS (Hint: It's an object!).</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Practice variable creation and printing to the browser console.</p>
+                <p><strong>Action:</strong> Create a mini JS file. Define a String, Number, Boolean, and Undefined variable. Print each one to the console along with its `typeof` result. Then view your output in Chrome DevTools.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Operators, Arrays, Objects & Functions</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Operators</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Symbols used to perform arithmetic, logical, or comparison operations on variables.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Includes Arithmetic (`+`, `-`, `*`, `/`), Comparison (`==`, `===`, `>`, `<`), and Logical (`&&`, `||`, `!`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Builds mathematical logic and condition-checking inside programs.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Checking if age is greater than 18.</div>
+                <div class="code-box">let sum = 10 + 5;
+let isAdult = age &gt;= 18 &amp;&amp; hasID === true;</div>
+                <div class="task-box">Task: Write a script that checks if `10 === "10"` and explain the result.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. Arrays & Methods (push, pop, shift, unshift)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A single variable used to store a list of multiple values.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Ordered lists defined by `[]`. Methods alter the list: `push()` adds to end, `pop()` removes from end, `unshift()` adds to start, `shift()` removes from start.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Manages collections of data like a list of users or shopping cart items.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Adding a new student to a class list array.</div>
+                <div class="code-box">let fruits = ["Apple", "Banana"];
+fruits.push("Mango"); // Adds to end
+fruits.shift(); // Removes "Apple" from start</div>
+                <div class="task-box">Task: Create an array of 3 colors. Add a color to the start and remove the last color.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Iteration Methods (map, filter, reduce, forEach)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Built-in array functions to loop over and manipulate data efficiently.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `forEach` loops without returning, `map` creates a new array, `filter` creates an array of passing conditions, `reduce` boils down to a single value.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Replaces traditional loops with clean, readable data transformation logic.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Filtering an array of numbers to keep only even ones.</div>
+                <div class="code-box">let nums = [1, 2, 3, 4];
+let evens = nums.filter(n =&gt; n % 2 === 0);
+nums.forEach(n =&gt; console.log(n));</div>
+                <div class="task-box">Task: Use `.map()` to multiply every number in an array by 2.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Objects & Functions</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Objects store key-value pairs; Functions store reusable blocks of code.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Objects use `{}` with properties. Functions are defined with the `function` keyword or as arrow functions `() => {}`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Structures complex data (Objects) and prevents repeating logic (Functions).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A user object passed into a greeting function.</div>
+                <div class="code-box">let user = { name: "Somesh", role: "Trainer" };
+function greet(u) {
+  return "Hello " + u.name;
+}</div>
+                <div class="task-box">Task: Create an object of a car (brand, model). Write a function that prints its details.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Arrays, Objects, and Map/Filter.</p>
+                <p><strong>Action:</strong> Build an array of 5 user objects (containing name and age). Write a function that uses `.filter()` to return only users older than 18.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Events, Conditions & Loops</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Events & Conditions</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Capturing user actions (clicks, typing) and executing logic based on decisions.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Events like `onclick` trigger JS. Conditions (`if`, `else if`, `switch`) control the flow of execution.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Makes websites interactive and smart based on user choices.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Changing background color ONLY if a button is clicked.</div>
+                <div class="code-box">function checkAge(age) {
+  if (age &gt;= 18) { alert("Welcome"); }
+  else { alert("Too young"); }
+}
+&lt;button onclick="checkAge(20)"&gt;Enter&lt;/button&gt;</div>
+                <div class="task-box">Task: Write a switch statement that takes a day number (1-7) and logs the day name.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Loops (for, while)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Structures to run a block of code repeatedly.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `for` runs a specific number of times; `while` runs as long as a condition remains true.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prevents manual code repetition when generating lists or parsing data.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Printing numbers 1 to 5 automatically.</div>
+                <div class="code-box">for (let i = 1; i &lt;= 5; i++) {
+  console.log("Number: " + i);
+}</div>
+                <div class="task-box">Task: Write a while loop that prints numbers from 10 down to 1.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Events and UI Logic.</p>
+                <p><strong>Action:</strong> Build a simple JS Counter. Create an HTML page with a `<h2>` starting at 0, and two buttons (+ and -). Use `onclick` events and an `if` condition to prevent the number from going below 0.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: DOM, Async JS & Debugging</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. DOM Manipulation</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Interacting directly with HTML elements via JavaScript.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Document Object Model (DOM) methods like `getElementById` or `querySelector` target elements to change their text, styles, or classes.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Dynamically updating the page without reloading.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Changing a heading text when a form is submitted.</div>
+                <div class="code-box">let title = document.querySelector("#main-title");
+title.innerText = "Updated by JS!";
+title.style.color = "red";</div>
+                <div class="task-box">Task: Create an empty `&lt;div id="box"&gt;` and use JS to add a paragraph inside it.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Asynchronous JS & Error Handling</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Handling tasks that take time (like timers or data fetching) without freezing the UI.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses Callbacks, Promises, `setTimeout`, and `async/await`. Errors are caught using `try...catch` blocks.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Ensures the website remains usable while waiting for server data.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Showing a loader, fetching data, then hiding the loader safely.</div>
+                <div class="code-box">try {
+  setTimeout(() =&gt; {
+    console.log("Runs after 2 seconds");
+  }, 2000);
+} catch (error) {
+  console.error("Bug found:", error);
+}</div>
+                <div class="task-box">Task: Write a script that uses `setTimeout` to trigger an alert 3 seconds after page load.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> DOM Manipulation Master.</p>
+                <p><strong>Action:</strong> Clone the interactive DOM color flipper project. Build a button that, when clicked, generates a random HEX color, applies it to the `document.body.style.backgroundColor`, and prints the HEX code on screen.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Storage, Closures & This</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Browser Storage (LocalStorage)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Saving data inside the user's browser that survives page reloads.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `localStorage.setItem()` and `getItem()` store strings permanently until cleared.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Remembers user preferences, light/dark mode, or cart items.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Saving a user's name so they stay logged in.</div>
+                <div class="code-box">localStorage.setItem("username", "Somesh");
+let user = localStorage.getItem("username");</div>
+                <div class="task-box">Task: Build a button that saves "Dark Mode = Active" in localStorage.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Closures, Hoisting & `this`</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Core advanced behavioral concepts in JS execution.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Closure:** An inner function remembering the variables of its outer function. **Hoisting:** JS moving declarations to the top before execution. **this:** Refers to the object currently executing the code.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Essential for mastering JS interviews and scope control.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Using `this` inside an object to access its own properties.</div>
+                <div class="code-box">let person = {
+  name: "Alex",
+  speak: function() { console.log(this.name); }
+};
+person.speak();</div>
+                <div class="task-box">Task: Write a simple closure where an outer function returns an inner function.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Storage & State Persistence.</p>
+                <p><strong>Action:</strong> Build a local to-do list. Create an input field and a "Save" button. When clicked, add the item to an array, save the array to `localStorage` (use JSON.stringify), and display it on the DOM.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 06
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 06 | Module 06: API & JSON Handling</span>
+                <span class="lecture-badge">Day 6</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. API Integration (GET/POST & JSON)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Connecting your front-end JS to external backend servers to send or receive live data.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> An Application Programming Interface (API) is accessed using the `fetch()` method. Data is transmitted as JSON strings.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Populates websites with real-world data like weather, stocks, or users.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Fetching a list of fake users from JSONPlaceholder API.</div>
+                <div class="code-box">fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response =&gt; response.json())
+  .then(data =&gt; console.log(data));</div>
+                <div class="task-box">Task: Fetch data from a free weather API and `console.log()` the current temperature.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 6 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Master API Fetching and JSON Rendering.</p>
+                <p><strong>Action:</strong> Clone an API User Card project. Fetch data from `randomuser.me/api` and dynamically map through the array to create an HTML Profile Card for every user directly via JS DOM Manipulation.</p>
+                <a href="https://codepen.io/pen/" target="_blank" class="mini-link">🔗 Open CodePen to Practice</a>
+            </div>
+
+             
+
+             <div style="text-align: center; margin-top: 30px;">
+                <a href="./advanced-js.html" class="menu-link" style="font-size: 20px;">➡️ Proceed to Next Subject: Advanced js Notes</a>
+            </div>
+
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.tyle.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'JavaScript_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

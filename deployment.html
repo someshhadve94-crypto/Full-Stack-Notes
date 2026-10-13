@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment and DevOps Handwritten Notes - Somesh Hadve</title>
+
+    <link rel="stylesheet" href="shared-style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .lecture-badge {
+            flex-shrink: 0;
+            background-color: #ee9b00;
+            color: #000000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 26px;
+            color: #1d3557;
+            margin: 0 0 8px;
+        }
+
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333333;
+            margin: 0 0 10px;
+        }
+
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #ffffff !important;
+            padding: 7px 13px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+
+        .mini-link:hover {
+            background-color: #e63946;
+        }
+
+        @media (max-width: 700px) {
+            .lecture-header {
+                font-size: 25px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button type="button" class="btn-nav btn-download" onclick="generatePDF()">
+            📥 Download PDF
+        </button>
+
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+         
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav" style="background-color: #ae2012;">
+            ☁️ Deployment
+        </a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+
+            <div class="notebook-header">
+                <h1 class="notebook-title">
+                    ☁️ Deployment and DevOps Complete Handwritten Notes
+                </h1>
+
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555555;">
+                    Full Stack Development Lecture Series • Instructor: Somesh Hadve
+                </p>
+            </div>
+
+            <!-- =====================================================
+                 LECTURE 01
+            ====================================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Git and GitHub Foundations</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <!-- Topic 1 -->
+            <div class="topic-box">
+                <h2 class="topic-title">1. Introduction to Web Deployment</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Deployment is the process of publishing a locally developed application to a server so that users can access it through the internet.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Web deployment includes preparing a production build, configuring a hosting server, uploading application files, connecting databases, setting environment variables, and exposing the application through a public URL.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It converts a project running only on a developer's computer into a publicly accessible and maintainable production application.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    A React project running at <code>localhost:5173</code> can be deployed to Vercel and accessed through a public HTTPS address.
+                </div>
+
+                <div class="code-box">Development:
+http://localhost:5173
+
+Production:
+https://my-project.vercel.app</div>
+
+                <div class="task-box">
+                    Task: Write down the major stages between completing a local application and publishing it on the internet.
+                </div>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic-box">
+                <h2 class="topic-title">2. Git Version Control</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Git is a distributed version-control system that records changes made to project files over time.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Git creates a local repository in which developers can stage changes, create commits, work with branches, compare versions, and restore older code when necessary.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It protects project history, supports teamwork, and makes it possible to experiment safely without permanently damaging stable code.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    A developer creates a feature branch, completes a login page, commits the work, and merges it into the main branch.
+                </div>
+
+                <div class="code-box">git init
+git status
+git add .
+git commit -m "Create initial project structure"
+git log --oneline</div>
+
+                <div class="task-box">
+                    Task: Initialize Git in a sample project, create two commits, and inspect the commit history with <code>git log --oneline</code>.
+                </div>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="topic-box">
+                <h2 class="topic-title">3. GitHub Repositories and Remote Workflow</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    GitHub is a cloud platform used to store Git repositories and collaborate on software projects.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    A remote repository is an online copy of a local Git repository. Developers use <code>push</code> to upload commits, <code>pull</code> to download and merge changes, and <code>clone</code> to create a local copy.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It provides cloud backup, team collaboration, pull requests, issue tracking, code review, and integration with deployment platforms.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    Vercel or Render can monitor the main branch of a GitHub repository and deploy automatically after every push.
+                </div>
+
+                <div class="code-box">git remote add origin https://github.com/username/project.git
+git branch -M main
+git push -u origin main
+
+# Download later:
+git clone https://github.com/username/project.git</div>
+
+                <div class="task-box">
+                    Task: Create a GitHub repository, connect it to a local project, and push the main branch successfully.
+                </div>
+            </div>
+
+            <!-- Lecture 1 assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Practice Assignment</h3>
+
+                <p>
+                    <strong>Action:</strong> Create a small portfolio repository, add a proper
+                    <code>README.md</code>, commit the project, and publish it to GitHub. Review
+                    how a professionally maintained public repository presents its source code.
+                </p>
+
+                <a
+                    href="https://github.com/githubtraining/hellogitworld"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-link"
+                >
+                    🔗 Analyze a Real GitHub Practice Repository
+                </a>
+            </div>
+
+            <!-- =====================================================
+                 LECTURE 02
+            ====================================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Front-End Hosting and Production Builds</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <!-- Topic 4 -->
+            <div class="topic-box">
+                <h2 class="topic-title">4. Production Build Process</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    A production build converts development source code into optimized files intended for real users.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Build tools bundle modules, minify JavaScript and CSS, optimize assets, remove unused code, create hashed filenames, and place the final files inside folders such as <code>dist</code> or <code>build</code>.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It reduces file sizes and improves application speed, browser caching, stability, and loading performance.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    Vite produces a <code>dist</code> folder after running <code>npm run build</code>.
+                </div>
+
+                <div class="code-box"># React with Vite
+npm run build
+npm run preview
+
+# Angular
+ng build --configuration production
+
+# Next.js
+npm run build
+npm run start</div>
+
+                <div class="task-box">
+                    Task: Create a production build of one front-end project and inspect the generated files and their sizes.
+                </div>
+            </div>
+
+            <!-- Topic 5 -->
+            <div class="topic-box">
+                <h2 class="topic-title">5. Static Front-End Deployment</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Static deployment publishes HTML, CSS, JavaScript, fonts, and images without requiring a continuously running backend process.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Services such as GitHub Pages, Netlify, and Vercel host static files on global Content Delivery Networks. They can build projects directly from connected Git repositories.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It is an inexpensive and fast method for deploying portfolios, landing pages, documentation, and client-rendered front-end applications.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    A pure HTML/CSS portfolio can be hosted on GitHub Pages, while a Vite React project can be imported into Vercel.
+                </div>
+
+                <div class="code-box"># Typical Vite deployment settings:
+Build Command: npm run build
+Output Directory: dist
+
+# Typical Create React App settings:
+Build Command: npm run build
+Output Directory: build</div>
+
+                <div class="task-box">
+                    Task: Deploy one HTML/CSS website to GitHub Pages or Netlify and verify that images, links, and styles work correctly.
+                </div>
+            </div>
+
+            <!-- Topic 6 -->
+            <div class="topic-box">
+                <h2 class="topic-title">6. Single Page Application Route Rewrites</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    A route rewrite sends unknown front-end routes back to the application's main HTML file.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    In React or Angular SPAs, routes such as <code>/products/5</code> are handled in the browser. The hosting server must return <code>index.html</code> instead of generating a 404 error when the route is refreshed.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It ensures client-side routes continue to work after a direct URL visit or browser refresh.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    Netlify uses a redirects file to rewrite every route to <code>/index.html</code>.
+                </div>
+
+                <div class="code-box"># File: public/_redirects
+/*    /index.html   200
+
+# Vercel example: vercel.json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}</div>
+
+                <div class="task-box">
+                    Task: Deploy an SPA with at least two routes and verify that refreshing the second route does not produce a 404 error.
+                </div>
+            </div>
+
+            <!-- Lecture 2 assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Practice Assignment</h3>
+
+                <p>
+                    <strong>Action:</strong> Deploy a responsive HTML/CSS/JavaScript landing page to
+                    Netlify. Test its public URL on both desktop and mobile, and verify all local
+                    image paths after deployment.
+                </p>
+
+                <a
+                    href="https://app.netlify.com/drop"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-link"
+                >
+                    🔗 Deploy Using Netlify Drop
+                </a>
+            </div>
+
+            <!-- =====================================================
+                 LECTURE 03
+            ====================================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Backend Hosting and Environment Variables</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <!-- Topic 7 -->
+            <div class="topic-box">
+                <h2 class="topic-title">7. Backend Server Deployment</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Backend deployment runs server-side application code continuously on a cloud platform.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    A cloud service installs dependencies, executes a start command, assigns a public URL, and forwards internet requests to the application through a dynamically assigned port.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It makes REST APIs, authentication services, database operations, and server-rendered applications available to remote front-end clients.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    An Express API can be deployed to Render and started with <code>npm start</code>.
+                </div>
+
+                <div class="code-box">const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+app.get('/api/health', (req, res) =&gt; {
+  res.status(200).json({ status: 'Server is healthy' });
+});
+
+app.listen(PORT, () =&gt; {
+  console.log(`Server listening on port ${PORT}`);
+});</div>
+
+                <div class="task-box">
+                    Task: Add a health-check route to an Express server and deploy the API to Render or another Node-compatible platform.
+                </div>
+            </div>
+
+            <!-- Topic 8 -->
+            <div class="topic-box">
+                <h2 class="topic-title">8. Environment Variables and Secret Management</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Environment variables store configuration values outside the application's source code.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Secrets such as database URLs, API keys, JWT secrets, and production flags are provided by the operating system or deployment platform and accessed through objects such as <code>process.env</code>.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It prevents sensitive credentials from being committed to public repositories and allows different settings for development, testing, and production.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    A local <code>.env</code> file contains a database URI and is ignored by Git.
+                </div>
+
+                <div class="code-box"># .env
+PORT=5000
+DATABASE_URL=mongodb+srv://username:password@cluster.example.net/app
+JWT_SECRET=replace_with_a_strong_secret
+
+# NodeJS
+require('dotenv').config();
+console.log(process.env.PORT);
+
+# .gitignore
+.env
+node_modules/</div>
+
+                <div class="task-box">
+                    Task: Move a hardcoded database URL into a <code>.env</code> file, add the file to <code>.gitignore</code>, and read it safely in the application.
+                </div>
+            </div>
+
+            <!-- Topic 9 -->
+            <div class="topic-box">
+                <h2 class="topic-title">9. CORS and Front-End/Backend Connection</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Cross-Origin Resource Sharing controls whether a browser permits one website origin to request resources from another origin.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    An origin is defined by protocol, domain, and port. A backend uses response headers such as <code>Access-Control-Allow-Origin</code> to authorize trusted front-end applications.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It allows a deployed front end and a separately hosted API to communicate while blocking unauthorized browser origins.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    An API on Render allows requests only from a React application hosted on Vercel.
+                </div>
+
+                <div class="code-box">const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://my-frontend.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));</div>
+
+                <div class="task-box">
+                    Task: Configure CORS so that only your deployed front-end domain can access your Express API.
+                </div>
+            </div>
+
+            <!-- Lecture 3 assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Practice Assignment</h3>
+
+                <p>
+                    <strong>Action:</strong> Deploy a simple Express REST API with a
+                    <code>/api/health</code> endpoint. Configure its start command, environment
+                    variables, dynamic port, and one allowed CORS origin.
+                </p>
+
+                <a
+                    href="https://render.com/docs/deploy-node-express-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-link"
+                >
+                    🔗 Follow Render's Express Deployment Guide
+                </a>
+            </div>
+
+            <!-- =====================================================
+                 LECTURE 04
+            ====================================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: Cloud Databases, Domains, DNS and HTTPS</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <!-- Topic 10 -->
+            <div class="topic-box">
+                <h2 class="topic-title">10. Cloud Database Deployment</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Cloud database deployment stores production application data on a managed remote database service.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Managed services such as MongoDB Atlas, Neon, Supabase, Railway, and cloud MySQL providers handle server availability, connection credentials, backups, security rules, and scaling.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It gives deployed backend servers reliable access to persistent data without depending on a developer's local XAMPP or MongoDB service.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    An Express API connects to MongoDB Atlas through a URI stored in <code>DATABASE_URL</code>.
+                </div>
+
+                <div class="code-box">const mongoose = require('mongoose');
+
+async function connectDatabase() {
+  try {
+    await mongoose.connect(process.env.DATABASE_URL);
+    console.log('Cloud database connected');
+  } catch (error) {
+    console.error('Database connection failed:', error.message);
+    process.exit(1);
+  }
+}
+
+connectDatabase();</div>
+
+                <div class="task-box">
+                    Task: Create a free cloud database, add its connection string as a platform secret, and verify the connection from your deployed backend.
+                </div>
+            </div>
+
+            <!-- Topic 11 -->
+            <div class="topic-box">
+                <h2 class="topic-title">11. Domain Names and DNS Records</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    A domain is a human-readable website address, while DNS maps that address to hosting infrastructure.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Important DNS records include <strong>A</strong> records for IPv4 addresses, <strong>AAAA</strong> for IPv6, <strong>CNAME</strong> for aliases, <strong>MX</strong> for mail servers, and <strong>TXT</strong> for verification and security policies.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    DNS allows users to access a service using a memorable address instead of a numerical server IP or platform-generated URL.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    The subdomain <code>api.example.com</code> can use a CNAME record pointing to a hosted backend service.
+                </div>
+
+                <div class="code-box">Example DNS records:
+
+A      @       192.0.2.10
+CNAME  www     example.vercel-dns.com
+CNAME  api     my-api.onrender.com
+TXT    @       platform-verification-code</div>
+
+                <div class="task-box">
+                    Task: Draw a request flow showing how a browser uses DNS to locate a server after the user enters a domain name.
+                </div>
+            </div>
+
+            <!-- Topic 12 -->
+            <div class="topic-box">
+                <h2 class="topic-title">12. HTTPS, SSL/TLS Certificates and Security</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    HTTPS is the secure version of HTTP that encrypts communication between clients and servers.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    TLS certificates verify a domain's identity and encrypt request/response data. Modern hosting platforms commonly issue and renew free certificates through services such as Let's Encrypt.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It protects passwords, tokens, payment information, form data, and API responses against interception or modification.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    A browser displays a secure padlock after the domain receives a valid certificate and redirects HTTP requests to HTTPS.
+                </div>
+
+                <div class="code-box">HTTP:
+http://example.com
+
+HTTPS:
+https://example.com
+
+Recommended production redirect:
+http://example.com  --- 301 ---&gt;  https://example.com</div>
+
+                <div class="task-box">
+                    Task: Inspect a live website's TLS certificate in the browser and record the issuer, validity dates, and secured domain.
+                </div>
+            </div>
+
+            <!-- Lecture 4 assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Practice Assignment</h3>
+
+                <p>
+                    <strong>Action:</strong> Create a free MongoDB Atlas cluster and connect it to a
+                    deployed API through an environment variable. Then study how a custom domain is
+                    connected to a hosting service using DNS records.
+                </p>
+
+                <a
+                    href="https://www.mongodb.com/docs/atlas/getting-started/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-link"
+                >
+                    🔗 Use MongoDB Atlas Getting Started
+                </a>
+            </div>
+
+            <!-- =====================================================
+                 LECTURE 05
+            ====================================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Docker, CI/CD and Monitoring</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <!-- Topic 13 -->
+            <div class="topic-box">
+                <h2 class="topic-title">13. Docker Containers</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Docker packages an application and its dependencies into a portable container.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    A Docker image is an immutable application template built from a <code>Dockerfile</code>. A container is a running instance of that image with isolated processes, networking, and filesystem layers.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It ensures that an application runs consistently across development computers, testing servers, and production environments.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    A Node application and its exact Node runtime can be packaged into an image and started on any Docker-compatible server.
+                </div>
+
+                <div class="code-box"># Dockerfile
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+COPY . .
+
+ENV NODE_ENV=production
+EXPOSE 3000
+
+CMD ["npm", "start"]</div>
+
+                <div class="task-box">
+                    Task: Write a Dockerfile for an Express API, build its image, and run it locally on port 3000.
+                </div>
+            </div>
+
+            <!-- Topic 14 -->
+            <div class="topic-box">
+                <h2 class="topic-title">14. CI/CD Pipeline</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Continuous Integration and Continuous Delivery automate code verification and deployment.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    CI automatically installs dependencies, runs formatting checks, tests, and builds after code changes. CD automatically releases verified code to staging or production environments.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It reduces manual deployment errors, catches bugs early, and allows teams to release software safely and frequently.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    A GitHub Actions workflow runs tests after every push to the main branch.
+                </div>
+
+                <div class="code-box"># File: .github/workflows/ci.yml
+name: Node CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+      - run: npm run build --if-present</div>
+
+                <div class="task-box">
+                    Task: Create a GitHub Actions workflow that installs dependencies and runs the project's test command after every push.
+                </div>
+            </div>
+
+            <!-- Topic 15 -->
+            <div class="topic-box">
+                <h2 class="topic-title">15. Production Logging, Monitoring and Health Checks</h2>
+
+                <div class="topic-field">
+                    <span class="field-label">Meaning:</span>
+                    Monitoring observes whether a live application is available, fast, and free from critical errors.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Definition:</span>
+                    Production observability commonly includes structured logs, uptime checks, health endpoints, error tracking, CPU and memory metrics, database monitoring, and alert notifications.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Purpose:</span>
+                    It helps developers identify failures quickly, understand their cause, and restore service before many users are affected.
+                </div>
+
+                <div class="topic-field">
+                    <span class="field-label">Example:</span>
+                    An uptime monitor requests <code>/api/health</code> every five minutes and sends an alert when the server returns an error.
+                </div>
+
+                <div class="code-box">app.get('/api/health', async (req, res) =&gt; {
+  res.status(200).json({
+    status: 'ok',
+    uptimeSeconds: process.uptime(),
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});</div>
+
+                <div class="task-box">
+                    Task: Add a JSON health endpoint to a backend and configure a free uptime monitor to check its public URL.
+                </div>
+            </div>
+
+            <!-- Lecture 5 assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Practice Assignment</h3>
+
+                <p>
+                    <strong>Action:</strong> Containerize a small Node API using Docker. Add a GitHub
+                    Actions workflow that installs dependencies and runs tests before changes can be
+                    deployed.
+                </p>
+
+                <a
+                    href="https://docs.docker.com/get-started/workshop/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-link"
+                >
+                    🔗 Follow Docker's Official Workshop
+                </a>
+            </div>
+
+            
+             
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-family: 'Caveat', cursive; font-size: 30px; color: #005f73;">
+                    🎉 End of Deployment and DevOps Notes 🎉
+                </p>
+
+                <a href="index.html" class="menu-link" style="font-size: 20px;">
+                    🏠 Return to Main Notes Menu
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            const downloadButton = document.querySelector('.btn-download');
+
+            if (typeof html2pdf === 'undefined') {
+                alert('PDF library could not load. Please check your internet connection and try again.');
+                return;
+            }
+
+            downloadButton.disabled = true;
+            downloadButton.textContent = '⏳ Creating PDF...';
+            navBar.style.display = 'none';
+
+            const options = {
+                margin: 0.3,
+                filename: 'Deployment_DevOps_Handwritten_Notes_Somesh_Hadve.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: 'letter',
+                    orientation: 'portrait'
+                },
+                pagebreak: {
+                    mode: ['avoid-all', 'css', 'legacy']
+                }
+            };
+
+            html2pdf()
+                .set(options)
+                .from(element)
+                .save()
+                .catch(function (error) {
+                    console.error('PDF generation failed:', error);
+                    alert('PDF generation failed. Please try again.');
+                })
+                .finally(function () {
+                    navBar.style.display = '';
+                    downloadButton.disabled = false;
+                    downloadButton.textContent = '📥 Download PDF';
+                });
+        }
+    </script>
+
+</body>
+</html>

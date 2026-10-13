@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+        
+        <a href="python.html" class="btn-nav" style="background-color: #ae2012;">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🐍 Python Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- LECTURE 01 -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro, Setup, Syntax &amp; Data Types</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to DA (Data Analytics)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The process of examining raw data to draw conclusions and support decision making.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Data Analytics involves collecting, cleaning, analyzing and visualizing data using tools like Python, Excel, SQL and Power BI.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Helps businesses find trends, predict sales, understand customers and make smart decisions.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> An e-commerce store analyzing which products sell most in Diwali season using Python charts.</div>
+                <div class="code-box"># DA Workflow: Collect -&gt; Clean -&gt; Analyze -&gt; Visualize -&gt; Decide</div>
+                <div class="task-box">Task: Write 3 real-life uses of Data Analytics in banking, hospital and shopping websites.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Intro to Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A high-level, easy to read, general purpose programming language.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Python was created by Guido van Rossum. It is interpreted, dynamically typed and supports web dev, DA, AI, automation and backend development.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used as backend language in Full Stack Python development and as main language for automation and data handling.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Instagram, YouTube backend and Django websites are built using Python.</div>
+                <div class="code-box">print("Hello Python")</div>
+                <div class="task-box">Task: Write 5 features of Python that make it beginner friendly.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Install Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Setting up Python interpreter and code editor on your computer.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Download from python.org, tick Add to PATH during install, verify with python --version in terminal, then install VS Code.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prepares your system to write, run and debug Python programs locally.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Running python --version shows Python 3.12.0 confirming successful install.</div>
+                <div class="code-box">python --version
+pip --version</div>
+                <div class="task-box">Task: Install Python, verify version in CMD, and run your first print program in VS Code.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Python Syntax</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The set of rules that define how Python code must be written.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Python uses indentation (4 spaces) instead of brackets to define blocks. Every statement ends with newline, no semicolon needed.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Keeps code clean, readable and forces proper structure.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> An if block must be indented, otherwise Python throws IndentationError.</div>
+                <div class="code-box">if 5 &gt; 2:
+    print("Five is greater")</div>
+                <div class="task-box">Task: Write an if statement with correct indentation and then try without indentation to see the error.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. Comments in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Non-executable lines used to explain code for humans.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Single line comment uses #. Multi-line comment uses triple quotes ''' or """.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Improves readability, helps teamwork and debugging.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Adding a note above complex logic explaining what it does.</div>
+                <div class="code-box"># This is single line comment
+'''This is
+multi line comment'''</div>
+                <div class="task-box">Task: Add comments to your last 3 programs explaining each line.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Variables in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Named containers used to store data values.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Created with assignment operator =. No need to declare type. Name must start with letter or underscore.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Stores user data, calculation results and reusable values.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Storing student name and marks.</div>
+                <div class="code-box">name = "Somesh"
+age = 25
+print(name, age)</div>
+                <div class="task-box">Task: Create variables for your name, city and age and print them in one line.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Data Types (String, Int, Float, Boolean, Null)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Classification of data that tells Python what kind of value is stored.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> String (text in quotes), Int (whole numbers), Float (decimals), Boolean (True/False), NoneType (None = null / empty).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Decides what operations are allowed on a value.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> You can add Int + Int but not Int + String without casting.</div>
+                <div class="code-box">a = "Hello"  # String
+b = 10      # Int
+c = 10.5    # Float
+d = True    # Boolean
+e = None    # Null
+print(type(b))</div>
+                <div class="task-box">Task: Create one variable of each type and print its type using type().</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Setup + Variables + Types.</p>
+                <p><strong>Action:</strong> Practice Python basics, syntax and type() checking on the live editor. Create 5 variables and print their types.</p>
+                <a href="https://www.w3schools.com/python/" target="_blank" class="mini-link">🔗 Practice: W3Schools Python Editor</a>
+            </div>
+
+            <!-- LECTURE 02 -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Operators, Input, Casting &amp; Functions</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Operators in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Special symbols to perform operations on values.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Arithmetic (+ - * / // % **), Comparison (== != &gt; &lt;), Logical (and or not), Assignment (= += -=).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Builds calculations, comparisons and decision logic.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Checking login condition with comparison + logical operator.</div>
+                <div class="code-box">x = 10 + 5  # 15
+print(10 == 10 and 5 &gt; 2)  # True</div>
+                <div class="task-box">Task: Take two numbers and print addition, subtraction, multiplication, division and modulus.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. User Inputs in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Taking data from keyboard during program run.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> input() function always returns data as String. Shows prompt message inside brackets.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Makes programs interactive like forms and billing systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Asking user name and printing welcome message.</div>
+                <div class="code-box">name = input("Enter your name: ")
+print("Hello", name)</div>
+                <div class="task-box">Task: Take name and city as input and print a full sentence.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Casting (Type Conversion)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Converting one data type into another.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> int() converts to integer, float() to decimal, str() to string. Needed because input() always gives string.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows mathematical calculations on user input.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Converting age input string to int for age + 1 calculation.</div>
+                <div class="code-box">age = input("Enter age: ")
+age = int(age)
+print(age + 1)</div>
+                <div class="task-box">Task: Take two numbers as input, cast to int, and print their sum.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Functions in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Reusable block of code that runs only when called.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Defined with def keyword, can take parameters and return value with return statement.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Avoids repetition, organizes logic like billing or validation.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A greet function reused for many users.</div>
+                <div class="code-box">def greet(name):
+    return "Hello " + name
+
+print(greet("Somesh"))</div>
+                <div class="task-box">Task: Create a function add(a, b) that returns sum and call it with 10, 20.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Input + Casting + Functions.</p>
+                <p><strong>Action:</strong> Solve basic HackerRank Python intro problems using input(), casting and functions.</p>
+                <a href="https://www.hackerrank.com/domains/python" target="_blank" class="mini-link">🔗 Practice: HackerRank Python Problems</a>
+            </div>
+
+            <!-- LECTURE 03 -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Scope, Conditions &amp; Nested IF</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Scope in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The region where a variable can be accessed.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Local scope = inside function. Global scope = outside all functions. Use global keyword to modify global variable inside function.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prevents name clash and controls data access.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A variable defined inside function cannot be used outside.</div>
+                <div class="code-box">x = 100  # global
+def test():
+    y = 10  # local
+    print(x + y)
+test()</div>
+                <div class="task-box">Task: Create global and local variables with same name and observe which value prints inside function.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Conditions (if, elif, else)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Decision making statements that run code only if condition is True.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> if checks first condition, elif checks next, else runs when all fail.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Controls flow like pass/fail, login check, discount logic.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Grading system based on marks.</div>
+                <div class="code-box">marks = 75
+if marks &gt;= 90:
+    print("A Grade")
+elif marks &gt;= 60:
+    print("B Grade")
+else:
+    print("Fail")</div>
+                <div class="task-box">Task: Take age as input and print Child, Teen, Adult or Senior using if-elif-else.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. Nested IF</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> An if statement placed inside another if statement.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Outer condition is checked first, inner condition is checked only if outer is True.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Handles multi-level checks like login + OTP verification.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Check username first, then check password inside.</div>
+                <div class="code-box">user = "admin"
+pwd = "1234"
+if user == "admin":
+    if pwd == "1234":
+        print("Login Success")
+    else:
+        print("Wrong Password")</div>
+                <div class="task-box">Task: Build ATM logic: if pin correct, then check balance &gt; amount for withdrawal.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Conditions mastery.</p>
+                <p><strong>Action:</strong> Practice if-else and nested-if challenges with real test cases.</p>
+                <a href="https://www.codechef.com/practice/python" target="_blank" class="mini-link">🔗 Practice: CodeChef Python Practice</a>
+            </div>
+
+            <!-- LECTURE 04 -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: Modules, Dates, Math &amp; Loops</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. Modules in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Ready-made Python files containing useful functions.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Import with import module_name and use as module_name.function(). You can also create your own .py module file.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Reuses code, avoids rewriting complex logic.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Importing math module to use sqrt function.</div>
+                <div class="code-box">import math
+print(math.sqrt(16))</div>
+                <div class="task-box">Task: Import math module and use ceil, floor and pow functions.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">16. Dates in Python</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Handling current date, time and formatting.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> datetime module provides date, datetime, now(), year, month, day, strftime() for formatting.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used in hospital, banking and booking systems for timestamps.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Printing today date on a bill receipt.</div>
+                <div class="code-box">import datetime
+today = datetime.date.today()
+print(today)
+print(today.year)</div>
+                <div class="task-box">Task: Print current date, time and year separately using datetime.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">17. Random Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Generating unpredictable numbers and choices.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> random.randint(a,b) gives integer, random.choice(list) picks random item, random.random() gives 0-1 float.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used for OTP generation, dice games, lottery systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Generating 6-digit OTP for login.</div>
+                <div class="code-box">import random
+otp = random.randint(100000, 999999)
+print(otp)</div>
+                <div class="task-box">Task: Generate a random OTP and a random choice from a list of 5 students.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">18. Math Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Built-in library for mathematical operations.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Provides sqrt(), ceil(), floor(), pow(), pi, factorial() and more.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Performs accurate scientific and billing calculations.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Calculating square root and power for interest logic.</div>
+                <div class="code-box">import math
+print(math.ceil(4.2))
+print(math.factorial(5))</div>
+                <div class="task-box">Task: Take radius as input and calculate circle area using math.pi.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">19. Loops - For Loop</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Repeating code for each item in a sequence.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> for variable in range/list/string: executes block. range(5) gives 0 to 4.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Automates repetitive tasks like printing tables or processing lists.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Printing multiplication table of 5.</div>
+                <div class="code-box">for i in range(1, 6):
+    print(i * 5)</div>
+                <div class="task-box">Task: Use for loop to print even numbers from 1 to 20.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">20. Loops - While Loop, Break &amp; Continue</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Repeating code while a condition stays True.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> while condition: runs until False. break exits loop fully. continue skips current iteration.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used when number of repetitions is unknown like password retry.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Asking password until correct with max 3 tries.</div>
+                <div class="code-box">i = 1
+while i &lt;= 5:
+    if i == 3:
+        i += 1
+        continue
+    print(i)
+    i += 1</div>
+                <div class="task-box">Task: Write while loop to print 10 to 1 countdown and use break at 5.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">21. PIP (Python Package Installer)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Official tool to install external Python libraries.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> pip install package-name downloads from PyPI. pip list shows installed packages, pip uninstall removes.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Connects Python with MySQL, Django and thousands of libraries.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> pip install mysql-connector-python for database connection.</div>
+                <div class="code-box">pip install requests
+pip list</div>
+                <div class="task-box">Task: Use pip to install requests library and check it in pip list.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Modules + Loops logic.</p>
+                <p><strong>Action:</strong> Practice loops, math and datetime problems. Build a small date + OTP generator app.</p>
+                <a href="https://www.w3schools.com/python/python_modules.asp" target="_blank" class="mini-link">🔗 Practice: W3Schools Modules + Loops</a>
+            </div>
+
+            <!-- LECTURE 05 -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: OOPS, Map &amp; Filter</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">22. Python OOPS (Class, Object, Inheritance)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Programming style that organizes code around real-world objects.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Class is blueprint, Object is real instance. __init__ is constructor. Pillars: Inheritance (reuse parent), Encapsulation (hide data), Polymorphism (same name different work).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Builds scalable banking, hospital and management systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> BankAccount class with deposit and withdraw methods used for many customers.</div>
+                <div class="code-box">class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+    def result(self):
+        return "Pass" if self.marks &gt;= 40 else "Fail"
+
+s1 = Student("Aarav", 85)
+print(s1.result())</div>
+                <div class="task-box">Task: Create BankAccount class with deposit() and withdraw() and test with 2 objects.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">23. map() Function</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Applies a function to every item in a list and returns new values.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> map(function, iterable). Returns map object, so wrap with list(). Often used with lambda.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Transforms data without writing loops, like doubling prices.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Converting list of strings to integers.</div>
+                <div class="code-box">nums = [1, 2, 3, 4]
+double = list(map(lambda x: x * 2, nums))
+print(double)</div>
+                <div class="task-box">Task: Use map() to convert temperatures list from Celsius to Fahrenheit.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">24. filter() Function</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Keeps only items that pass a condition.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> filter(function, iterable). Function must return True/False. True items are kept.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Filters data like adult users, passed students, in-stock products.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Keeping only even numbers from a list.</div>
+                <div class="code-box">nums = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)</div>
+                <div class="task-box">Task: Use filter() to keep only names with length greater than 4 from a list.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> OOPS + Functional programming.</p>
+                <p><strong>Action:</strong> Practice class-based problems and lambda + map/filter challenges.</p>
+                <a href="https://www.hackerrank.com/domains/python?filters%5Bsubdomains%5D%5B%5D=py-classes" target="_blank" class="mini-link">🔗 Practice: HackerRank OOP Challenges</a>
+            </div>
+
+             
+
+             
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="./nodejs.html" class="menu-link" style="font-size: 20px;">➡️ Next: NodeJs Notes</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+            const opt = {
+                margin: 0.3,
+                filename: 'Python_Handwritten_Notes_Somesh_Hadve.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+         
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav" style="background-color: #ae2012;">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🟢 NodeJS Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack JavaScript Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro to NodeJS & Module System</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to NodeJS</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A cross-platform, open-source JavaScript runtime environment that executes JS code outside the web browser.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Built on Google Chrome's V8 JavaScript engine. NodeJS operates on a single-threaded, non-blocking, event-driven I/O architecture.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables developers to write backend server-side code, REST APIs, and command-line tools using JavaScript.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Running `node app.js` in terminal to execute backend JavaScript.</div>
+                <div class="code-box">// Verify Node installation in terminal:
+node -v
+npm -v</div>
+                <div class="task-box">Task: Open your terminal, check `node -v`, and execute a simple `console.log("Hello Node")` script.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. NodeJS Modules System</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Reusable blocks of code encapsulated into separate files to organize backend applications.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Node supports 3 module types: **Core Built-in Modules** (`fs`, `http`, `path`), **Local Custom Modules** (written by developer), and **Third-Party Modules** (installed via NPM).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Promotes code modularity, maintainability, and prevents namespace pollution.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Importing built-in modules vs custom user helper files.</div>
+                <div class="code-box">// Core Module
+const fs = require('fs');
+
+// Local Module
+const math = require('./mathUtils');</div>
+                <div class="task-box">Task: List 3 core modules and 3 third-party NPM modules in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Module Exports & Require (`require` & `module.exports`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The CommonJS module syntax used in NodeJS to export and import functions/objects between files.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `module.exports` exposes functions, objects, or values from a file. `require('./filepath')` imports that exposed functionality into another file.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Connects separate application files together into a cohesive backend system.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Exporting math utility functions and requiring them in `app.js`.</div>
+                <div class="code-box">// mathUtils.js
+const add = (a, b) =&gt; a + b;
+const multiply = (a, b) =&gt; a * b;
+
+module.exports = { add, multiply };
+
+// app.js
+const { add, multiply } = require('./mathUtils');
+console.log(add(5, 10)); // 15</div>
+                <div class="task-box">Task: Create a custom module `calculator.js` that exports `add`, `subtract`, and `divide` functions, then import and test them in `index.js`.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Node Environment & Module Exports.</p>
+                <p><strong>Action:</strong> Initialize a Node project (`npm init -y`). Create a module `userHelper.js` exporting functions `formatName()` and `calculateAge()`. Require and call them in `server.js`.</p>
+                <a href="https://nodejs.org/en/learn/command-line/run-nodejs-scripts" target="_blank" class="mini-link">🔗 Reference: Running NodeJS Scripts Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Core Built-In Modules (FS, HTTP, Path, OS, Events)</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. FS (File System) Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Built-in module providing APIs to read, write, update, delete, and manage files on the server disk.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Offers both synchronous (`readFileSync`) and asynchronous non-blocking (`readFile`, promises) file operations.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used for logging server events, reading configuration files, or managing file uploads.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Writing text to a file asynchronously and reading it back.</div>
+                <div class="code-box">const fs = require('fs');
+
+// Write File
+fs.writeFile('log.txt', 'Server started successfully!', (err) =&gt; {
+  if (err) throw err;
+  console.log('File written.');
+});
+
+// Read File
+fs.readFile('log.txt', 'utf8', (err, data) =&gt; {
+  if (err) throw err;
+  console.log(data);
+});</div>
+                <div class="task-box">Task: Write a Node script that creates a file `notes.txt`, appends text to it using `fs.appendFile`, and logs the contents.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. HTTP Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Core module allowing NodeJS to transfer data over HTTP and create web servers.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `http.createServer((req, res) => {})` listens on a specified port (e.g., 3000), accepts incoming client requests (`req`), and returns HTTP responses (`res`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables building raw HTTP web servers and RESTful API endpoints without third-party frameworks.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Starting a web server returning JSON data.</div>
+                <div class="code-box">const http = require('http');
+
+const server = http.createServer((req, res) =&gt; {
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ message: "Hello from NodeJS Server!" }));
+});
+
+server.listen(3000, () =&gt; {
+  console.log('Server running on http://localhost:3000');
+});</div>
+                <div class="task-box">Task: Create an HTTP server that returns HTML `&lt;h1&gt;Welcome to Somesh Hadve's Server&lt;/h1&gt;` on port 5000.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Path Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Core module providing utilities for working with file and directory paths.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Handles path resolution cross-platform (Windows `\` vs Linux `/`). Key methods: `path.join()`, `path.resolve()`, `path.extname()`, `path.basename()`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prevents file path errors when deploying code across different operating systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Safely joining directory paths and getting file extensions.</div>
+                <div class="code-box">const path = require('path');
+
+const filePath = path.join(__dirname, 'uploads', 'image.png');
+console.log(filePath);
+console.log(path.extname(filePath)); // '.png'</div>
+                <div class="task-box">Task: Use `path.extname()` and `path.basename()` on a sample file path and log the outputs.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. OS Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Built-in module providing operating system information and system metrics.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Offers functions to inspect CPU architecture (`os.arch()`), memory usage (`os.totalmem()`, `os.freemem()`), CPU details (`os.cpus()`), and uptime (`os.uptime()`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used for server health monitoring, load balancing, and diagnostic logging.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Printing total free memory available on the server.</div>
+                <div class="code-box">const os = require('os');
+
+console.log('OS Architecture:', os.arch());
+console.log('Free Memory (MB):', os.freemem() / (1024 * 1024));
+console.log('CPU Cores:', os.cpus().length);</div>
+                <div class="task-box">Task: Write a script that checks server free memory percentage and warns if free memory drops below 20%.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Events Module (`EventEmitter`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Core module enabling event-driven architecture through custom event triggers and listeners.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses the `EventEmitter` class. Events are registered with `.on('eventName', callback)` and triggered with `.emit('eventName', data)`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers NodeJS asynchronous event handling, web sockets, logging, and chat systems.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Triggering a user registration event listener.</div>
+                <div class="code-box">const EventEmitter = require('events');
+const customEmitter = new EventEmitter();
+
+// Listener
+customEmitter.on('userSignedUp', (user) =&gt; {
+  console.log(`Sending welcome email to ${user.email}`);
+});
+
+// Trigger Event
+customEmitter.emit('userSignedUp', { email: 'somesh@example.com' });</div>
+                <div class="task-box">Task: Create an EventEmitter that listens for an 'orderPlaced' event and logs order details.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> HTTP Server + FS & Path Integration.</p>
+                <p><strong>Action:</strong> Build a Node HTTP server that reads an HTML file from disk using `fs.readFile` and `path.join` and serves it on `http://localhost:3000`.</p>
+                <a href="https://nodejs.org/en/learn/getting-started/introduction-to-nodejs" target="_blank" class="mini-link">🔗 Reference: NodeJS Built-in Modules Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Streams, URL & Querystring Modules</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Streams Module (Readable, Writable, Transform &amp; Pipe)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Handling data processing sequentially in small chunks without loading full files into memory at once.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> 4 Stream types: **Readable** (`fs.createReadStream`), **Writable** (`fs.createWriteStream`), **Duplex**, and **Transform**. `.pipe()` pipes readable stream data directly into a writable stream.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Extremely memory efficient when handling massive video files, logs, or large dataset transfers.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Copying a large 1GB file chunk by chunk using `.pipe()`.</div>
+                <div class="code-box">const fs = require('fs');
+
+const readStream = fs.createReadStream('largeVideo.mp4');
+const writeStream = fs.createWriteStream('copyVideo.mp4');
+
+// Memory-efficient piping
+readStream.pipe(writeStream);</div>
+                <div class="task-box">Task: Pipe a large file read stream into an HTTP response stream using `readStream.pipe(res)`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. URL Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Built-in module for parsing, resolving, and formatting URL address strings.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Provides the modern `URL` Web API class to extract protocol, hostname, pathname, port, and query parameters (`searchParams`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Parses incoming client request URLs to handle API routing and query string parameters.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Parsing query parameters from a request URL.</div>
+                <div class="code-box">const myUrl = new URL('https://example.com:8080/products?category=shoes&amp;page=2');
+
+console.log(myUrl.hostname); // 'example.com'
+console.log(myUrl.pathname); // '/products'
+console.log(myUrl.searchParams.get('category')); // 'shoes'</div>
+                <div class="task-box">Task: Create a script that parses a URL string and logs `host`, `pathname`, and query value `id`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Querystring Module</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Legacy built-in module specifically for parsing and formatting URL query strings.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `querystring.parse('a=1&amp;b=2')` converts query strings into JavaScript objects. `querystring.stringify(obj)` converts objects into query strings.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Handles raw form submission URL-encoded data (`application/x-www-form-urlencoded`).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Converting form POST query data into a readable JS object.</div>
+                <div class="code-box">const querystring = require('querystring');
+
+const parsed = querystring.parse('name=Somesh&amp;role=Trainer');
+console.log(parsed.name); // 'Somesh'
+
+const stringified = querystring.stringify({ status: 'active', page: 1 });
+console.log(stringified); // 'status=active&amp;page=1'</div>
+                <div class="task-box">Task: Parse the query string `search=laptop&minPrice=500` and output the resulting object keys.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> URL Parsing & Stream Response Server.</p>
+                <p><strong>Action:</strong> Build an HTTP server that uses the `URL` module to check if the route is `/file`. If true, stream a file to the response using `fs.createReadStream().pipe(res)`. Otherwise return a 404 text message.</p>
+                <a href="https://nodejs.org/api/stream.html" target="_blank" class="mini-link">🔗 Reference: NodeJS Stream API Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: Asynchronous Node & Project</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Asynchronous Architecture &amp; Event Loop</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> How NodeJS handles thousands of concurrent requests on a single thread without blocking execution.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Heavy I/O tasks are delegated to the underlying operating system or `libuv` thread pool. Upon completion, callbacks enter the Event Loop queue (`Microtask Queue` &amp; `Task Queue`) to be executed.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Delivers high scalability, throughput, and low latency for network-heavy web applications.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Non-blocking file reading using `fs.promises`.</div>
+                <div class="code-box">const fs = require('fs').promises;
+
+async function readFileAsync() {
+  try {
+    const data = await fs.readFile('data.json', 'utf8');
+    console.log(JSON.parse(data));
+  } catch (err) {
+    console.error('Error:', err);
+  }
+}
+readFileAsync();</div>
+                <div class="task-box">Task: Convert a callback-based `fs.readFile` script into an `async/await` promise function using `fs.promises`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Building a Complete Node.js CLI Project</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Combining core NodeJS modules to build a command-line utility program.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses `process.argv` to read command line flags, `fs` module to save/load JSON records, and `readline` for user prompt input.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Demonstrates full mastery of core Node backend logic, file persistence, and CLI interaction.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A CLI Task Manager saving tasks to `tasks.json`.</div>
+                <div class="code-box">// Reading CLI arguments in Node:
+const args = process.argv.slice(2);
+const command = args[0]; // e.g., "add", "list", "delete"
+
+if (command === 'list') {
+  console.log('Fetching tasks...');
+}</div>
+                <div class="task-box">Task: Build a Node CLI program `notes.js` where `node notes.js add "My Note"` appends a note to a JSON file.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> CLI File Note Manager.</p>
+                <p><strong>Action:</strong> Build a CLI tool using Node. Arguments: `add <note>` appends a note to `notes.json`, `list` displays all saved notes, and `clear` wipes the file.</p>
+                <a href="https://nodejs.org/api/process.html" target="_blank" class="mini-link">🔗 Reference: NodeJS Process & CLI Docs</a>
+            </div>
+
+
+            
+
+
+             
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="./mysql.html" class="menu-link" style="font-size: 20px;">➡️ Next Subject: MySQL Notes</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'NodeJS_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

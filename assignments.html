@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Assignment & Practice Project Bank - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .completion-header {
+            background-color: #1d3557;
+            color: white;
+            padding: 10px 20px;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            border-radius: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .project-row {
+            background-color: #ffffff;
+            border: 2px dashed #005f73;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .project-details {
+            width: 70%;
+        }
+        .project-title {
+            font-family: 'Kalam', cursive;
+            font-size: 20px;
+            font-weight: bold;
+            color: #005f73;
+            margin: 0 0 5px 0;
+        }
+        .project-desc {
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            color: #555;
+            margin: 0;
+        }
+        .project-link-btn {
+            background-color: #e63946;
+            color: #ffffff !important;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-family: 'Kalam', cursive;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .project-link-btn:hover {
+            background-color: #ae2012;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP PRINT/NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav" style="background-color: #ae2012;">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">📚 Final Clone Assignment Bank</h1>
+                <p style="font-family: 'Kalam', cursive; font-size: 16px; color: #555; text-align: center;">
+                    Real Websites to Clone Based on Language Completion
+                </p>
+            </div>
+
+            <!-- SECTION 1: HTML COMPLETION -->
+            <div class="completion-header">✅ After HTML Completion (Pure HTML Structure)</div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">1. Wikipedia Article Clone</h3>
+                    <p class="project-desc">Structure-heavy: Headings, Paragraphs, Lists, Citations, Links, and Image embeds. (No CSS required)</p>
+                </div>
+                <a href="https://en.wikipedia.org/wiki/Web_design" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">2. Craigslist Home Page Clone</h3>
+                    <p class="project-desc">Link-heavy: Columns of unordered lists and basic table layouts holding hundreds of anchor links.</p>
+                </div>
+                <a href="https://sfbay.craigslist.org/" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">3. FrontendMentor Recipe Component</h3>
+                    <p class="project-desc">Semantic focus: main, section, headers, ordered lists for steps, and bolded ingredients.</p>
+                </div>
+                <a href="https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">4. Job Application / Survey Form</h3>
+                    <p class="project-desc">Form focus: Text inputs, email validation, radio choices, dropdowns, and textareas.</p>
+                </div>
+                <a href="https://codepen.io/freeCodeCamp/full/VPaooJ" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+
+            <!-- SECTION 2: HTML + CSS COMPLETION -->
+            <div class="completion-header">✅ After CSS Completion (HTML + CSS Styling)</div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">1. QR Code Card Component</h3>
+                    <p class="project-desc">Box Model mastery: Padding, border-radius, centering divs, and Google Fonts integration.</p>
+                </div>
+                <a href="https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">2. Product Preview Card</h3>
+                    <p class="project-desc">Flexbox focus: Recreate a responsive 2-column e-commerce card with hover states and image fitting.</p>
+                </div>
+                <a href="https://www.frontendmentor.io/challenges/product-preview-card-component-GO7UmttRfa" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">3. Social Links Profile Page</h3>
+                    <p class="project-desc">Flex-column layout: Rounded avatar image, multiple styled buttons with hover transitions.</p>
+                </div>
+                <a href="https://www.frontendmentor.io/challenges/social-links-profile-UG32l9m6dQ" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+            <div class="project-row">
+                <div class="project-details">
+                    <h3 class="project-title">4. Landing Page with Fixed Nav</h3>
+                    <p class="project-desc">Grid & Positioning: Build a full page with a sticky navigation bar, hero banner background, and 3-column features grid.</p>
+                </div>
+                <a href="https://www.frontendmentor.io/challenges/fylo-data-storage-component-1dZPRbV5n" target="_blank" class="project-link-btn">🔗 Open Live Site</a>
+            </div>
+
+
+            <!-- Handcrafted Signature Block -->
+            <div style="margin-top: 60px; text-align: right; border-top: 2px dashed #ff8080; padding-top: 25px; padding-right: 20px;">
+                <p style="font-family: 'Kalam', cursive; font-size: 18px; color: #777; margin-bottom: -10px;">Owned & Handcrafted for:</p>
+                <div style="display: inline-block; transform: rotate(-4deg);">
+                    <h2 style="font-family: 'Caveat', cursive; font-size: 52px; color: #005f73; letter-spacing: 2px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); margin: 0;">
+                        Somesh Hadve
+                    </h2>
+                    <div style="height: 3px; background-color: #e63946; width: 80%; margin-left: 10%; margin-top: -8px; border-radius: 5px;"></div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'Master_Assignment_Bank_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

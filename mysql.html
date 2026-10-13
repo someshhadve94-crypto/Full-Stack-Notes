@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+        
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav" style="background-color: #ae2012;">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🗄️ MySQL Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro, XAMPP, Setup &amp; Table Creation</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to MySQL</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> An open-source Relational Database Management System (RDBMS) that stores data in structured tables using rows and columns.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> MySQL uses Structured Query Language (SQL) to perform database operations. It supports ACID properties, foreign key relationships, and high-concurrency read/write operations.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Serves as persistent, structured backend data storage for web applications like e-commerce, banking, and social networks.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Storing registered users, product inventories, and customer orders inside dedicated tables.</div>
+                <div class="code-box">SHOW DATABASES;
+USE my_store_db;</div>
+                <div class="task-box">Task: Explain in your notebook why relational databases use structured tables rather than unstructured plain text files.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Install XAMPP &amp; Usage of XAMPP</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Setting up a local web server environment that bundles Apache, MariaDB/MySQL, PHP, and phpMyAdmin.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> XAMPP is a free cross-platform software stack. Starting the Apache and MySQL modules in the XAMPP Control Panel activates local database access at `localhost` (port 3306).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Provides a simple local GUI (phpMyAdmin) and local database server for development without requiring cloud hosting.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Accessing `http://localhost/phpmyadmin` to visually inspect database tables.</div>
+                <div class="code-box"># Start Apache &amp; MySQL from XAMPP Control Panel
+# Open browser: http://localhost/phpmyadmin</div>
+                <div class="task-box">Task: Launch XAMPP, start Apache and MySQL, and log into phpMyAdmin in your web browser.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Connecting Python &amp; MySQL using PIP</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Installing the database driver module to allow Python scripts to communicate with a MySQL database server.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Installed using `pip install mysql-connector-python`. Inside Python, `mysql.connector.connect()` establishes a socket connection using host, user, password, and database parameters.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables automated backend database queries directly from Python code.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Connecting Python to local XAMPP MySQL database.</div>
+                <div class="code-box">pip install mysql-connector-python
+
+# python_script.py
+import mysql.connector
+
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password=""
+)
+cursor = db.cursor()
+cursor.execute("SHOW DATABASES")</div>
+                <div class="task-box">Task: Write a Python script that connects to local MySQL and prints all existing databases.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Creating Database &amp; Creating Tables</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> SQL commands to initialize a new database container and define relational data tables inside it.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `CREATE DATABASE db_name;` creates the container. `CREATE TABLE table_name (col1 type, col2 type);` defines table schemas, column names, and data types (VARCHAR, INT, FLOAT, DATE).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Sets up structured storage schemas for domain entities like Users, Accounts, or Products.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating a `students` table with ID, Name, and Age columns.</div>
+                <div class="code-box">CREATE DATABASE hospital_db;
+USE hospital_db;
+
+CREATE TABLE patients (
+    patient_id INT,
+    full_name VARCHAR(100),
+    age INT,
+    disease VARCHAR(100)
+);</div>
+                <div class="task-box">Task: Write SQL queries to create a `bank_db` database and a `customers` table with 4 columns.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. MySQL Constraints (PRIMARY KEY, UNIQUE, NOT NULL, FOREIGN KEY, DEFAULT)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Rules enforced on data columns to ensure accuracy, integrity, and uniqueness.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **PRIMARY KEY** uniquely identifies every record. **AUTO_INCREMENT** auto-generates IDs. **UNIQUE** prevents duplicates. **NOT NULL** forbids empty values. **DEFAULT** sets fallback values. **FOREIGN KEY** links child tables to parent tables.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Guarantees database data integrity and prevents invalid or orphaned data entries.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Setting `account_no` as a unique primary key that auto-increments.</div>
+                <div class="code-box">CREATE TABLE accounts (
+    acc_no INT PRIMARY KEY AUTO_INCREMENT,
+    holder_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    balance FLOAT DEFAULT 0.00
+);</div>
+                <div class="task-box">Task: Create a table using PRIMARY KEY, AUTO_INCREMENT, NOT NULL, UNIQUE, and DEFAULT rules.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Database & Table Schema Setup.</p>
+                <p><strong>Action:</strong> Open phpMyAdmin or SQL Terminal. Create a database `boutique_db` and a table `products` with columns: product_id (Primary Key Auto Increment), product_name (Not Null), category (VARCHAR), price (FLOAT Not Null), and stock (INT Default 0).</p>
+                <a href="https://www.w3schools.com/sql/" target="_blank" class="mini-link">🔗 Practice: W3Schools SQL Editor</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: CRUD - Insert &amp; Select</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. CRUD: INSERT &amp; SELECT</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Standard operations to add new data rows and retrieve existing data rows from tables.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `INSERT INTO table (cols) VALUES (vals);` adds new records. `SELECT cols FROM table;` queries and retrieves records. `SELECT *` retrieves all columns.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Core fundamental operations for saving form submissions and reading data back to display on the UI.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Inserting a new patient into a hospital database and querying all patients.</div>
+                <div class="code-box">INSERT INTO patients (full_name, age, disease) 
+VALUES ('Aarav Sharma', 32, 'Fever');
+
+SELECT patient_id, full_name FROM patients;</div>
+                <div class="task-box">Task: Insert 3 sample rows into your `products` table and retrieve all rows using `SELECT *`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. SQL Injection &amp; Parameterized Queries</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A major security vulnerability where attackers inject malicious SQL statements through user input fields.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Dynamic string concatenation (`"SELECT * FROM users WHERE user='" + input + "'"` ) lets attackers bypass login with `' OR '1'='1`. **Parameterized Queries** (using `%s` placeholders with tuples) separate code from data safely.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Protects databases against unauthorized access, data destruction, and credential leaks.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Safe query execution using Python MySQL Connector parameter placeholders.</div>
+                <div class="code-box"># UNSAFE (Vulnerable to SQL Injection):
+# query = f"SELECT * FROM users WHERE name='{user_input}'"
+
+# SAFE (Parameterized Query):
+query = "SELECT * FROM users WHERE name = %s AND status = %s"
+values = (user_input, "active")
+cursor.execute(query, values)</div>
+                <div class="task-box">Task: Write a Python program that safely inserts user inputs into MySQL using `%s` placeholders.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Python + MySQL Parameterized INSERT & SELECT.</p>
+                <p><strong>Action:</strong> Write a Python script that asks the user for patient details via `input()`, inserts them into MySQL safely using `%s` tuple parameters, and then queries and prints all patients.</p>
+                <a href="https://dev.mysql.com/doc/connector-python/en/" target="_blank" class="mini-link">🔗 Reference: MySQL Connector Python Docs</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Filtering &amp; Sorting</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Filtering: WHERE, AND, OR, LIKE</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Restricting SQL query results based on specific conditions and pattern matching.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `WHERE` specifies condition rules. `AND` requires all conditions true; `OR` requires at least one condition true. `LIKE` handles wildcard search (`%` for any string, `_` for single character).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers search bars, price filters, category filters, and user searches.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Finding all products in 'Clothing' with price under 500, or names starting with 'Shirt'.</div>
+                <div class="code-box">SELECT * FROM products 
+WHERE category = 'Clothing' AND price &lt; 500;
+
+SELECT * FROM products 
+WHERE product_name LIKE 'Shirt%';</div>
+                <div class="task-box">Task: Query all products whose name contains the letter 'a' using `LIKE '%a%'`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Sorting &amp; Limiting: ORDER BY &amp; LIMIT</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Sorting database result sets in specific order and capping total returned row counts.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `ORDER BY column ASC | DESC` sorts output numerically or alphabetically. `LIMIT n` restricts returned rows to `n` items.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers pagination, "Top 10" leaderboards, and "Sort by Price High to Low" features.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Fetching the top 5 most expensive products.</div>
+                <div class="code-box">SELECT * FROM products 
+ORDER BY price DESC 
+LIMIT 5;</div>
+                <div class="task-box">Task: Write a query that fetches the 3 youngest patients ordered by age ascending.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Filtering, Searching & Pagination Queries.</p>
+                <p><strong>Action:</strong> Write queries against your products table: 1) Find all items under $1000 sorted by price descending. 2) Search items containing 'Pro' in the title using LIKE. 3) Return top 3 cheapest items using ORDER BY ASC LIMIT 3.</p>
+                <a href="https://www.w3schools.com/sql/sql_where.asp" target="_blank" class="mini-link">🔗 Practice: SQL WHERE & ORDER BY</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: CRUD - Update &amp; Delete</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. CRUD: UPDATE &amp; DELETE</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Modifying existing database records and removing obsolete records from tables.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `UPDATE table SET col = val WHERE condition;` alters existing rows. `DELETE FROM table WHERE condition;` removes matching rows. **CRITICAL:** Always include a `WHERE` clause, otherwise ALL rows in the table will be updated or deleted!</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows users to update profile details, change account balances, or cancel orders.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Updating a customer balance after a deposit, or deleting a cancelled patient appointment.</div>
+                <div class="code-box">UPDATE accounts 
+SET balance = balance + 500.00 
+WHERE acc_no = 101;
+
+DELETE FROM patients 
+WHERE patient_id = 5;</div>
+                <div class="task-box">Task: Write a safe UPDATE statement using Python parameterized queries to update a customer's phone number.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Python MySQL Complete CRUD Loop.</p>
+                <p><strong>Action:</strong> Build a CLI program in Python with options: 1. Add Product, 2. View Products, 3. Update Product Price, 4. Delete Product. Ensure UPDATE and DELETE operations use parameterized queries.</p>
+                <a href="https://www.w3schools.com/sql/sql_update.asp" target="_blank" class="mini-link">🔗 Practice: SQL UPDATE & DELETE</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Aggregate Functions & Grouping</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Aggregate Functions (COUNT, SUM, AVG, MIN, MAX)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> SQL functions that perform calculations on multiple rows of a column and return a single summary value.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `COUNT()` returns row count. `SUM()` totals values. `AVG()` calculates average. `MIN()` / `MAX()` find lowest/highest values.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers dashboard statistics, total sales metrics, and business reports.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Calculating total revenue and total customer count.</div>
+                <div class="code-box">SELECT COUNT(*) AS total_patients FROM patients;
+SELECT SUM(balance) AS total_deposits FROM accounts;
+SELECT AVG(price) AS avg_price, MAX(price) AS highest FROM products;</div>
+                <div class="task-box">Task: Write a query to count total products and calculate the average product price in your database.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Grouping Data: GROUP BY &amp; HAVING</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Categorizing identical data rows into summary groups and filtering aggregated results.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `GROUP BY column` groups identical column values together for aggregation. `HAVING condition` filters the *grouped summary results* (unlike `WHERE` which filters individual raw rows before grouping).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Generates category breakdown analytics (e.g., total sales per category, patient count per disease).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Showing total stock per category where total stock exceeds 10 items.</div>
+                <div class="code-box">SELECT category, COUNT(*) AS item_count, SUM(stock) AS total_stock
+FROM products
+GROUP BY category
+HAVING total_stock &gt; 10;</div>
+                <div class="task-box">Task: Write a query grouping patients by `disease` and showing the count of patients for each disease.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Aggregations & Analytical Reports.</p>
+                <p><strong>Action:</strong> Write queries using GROUP BY and aggregate functions: 1. Total revenue per product category. 2. Average account balance grouped by branch name. 3. Filter groups using HAVING where average balance > 5000.</p>
+                <a href="https://www.w3schools.com/sql/sql_groupby.asp" target="_blank" class="mini-link">🔗 Practice: SQL GROUP BY & HAVING</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 06
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 06 | Module 06: Joins & Relationships</span>
+                <span class="lecture-badge">Day 6</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Table Relationships &amp; Foreign Keys</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Connecting related data tables together through shared Key columns.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Relationships include **One-to-Many** (1 Customer -> Many Orders), **Many-to-Many** (Many Students -> Many Courses via junction table), and **One-to-One**. A `FOREIGN KEY` in the child table references the `PRIMARY KEY` of the parent table.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Eliminates data redundancy and establishes relational integrity across complex system tables.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Linking an `orders` table to a `customers` table via `customer_id`.</div>
+                <div class="code-box">CREATE TABLE orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATE,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(acc_no)
+);</div>
+                <div class="task-box">Task: Draw an ER diagram in your notebook showing a One-to-Many relationship between Customers and Transactions.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. SQL Joins (INNER JOIN, LEFT JOIN, RIGHT JOIN)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Combining columns from two or more tables based on a related common column.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **INNER JOIN** returns records matching in both tables. **LEFT JOIN** returns all records from left table + matching records from right. **RIGHT JOIN** returns all records from right table + matching records from left.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Pulls unified complete datasets across relational schemas for receipts, profiles, and order histories.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Fetching order details along with customer name and email.</div>
+                <div class="code-box">SELECT orders.order_id, customers.holder_name, orders.order_date
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.acc_no;
+
+SELECT customers.holder_name, orders.order_id
+FROM customers
+LEFT JOIN orders ON customers.acc_no = orders.customer_id;</div>
+                <div class="task-box">Task: Write an INNER JOIN query joining `patients` and `doctor_appointments` tables.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 6 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Relational Database Joins.</p>
+                <p><strong>Action:</strong> Create 2 relational tables (`customers` and `transactions`). Insert 3 customers and 5 transactions linked by Foreign Key. Write an INNER JOIN query to display customer names with their transaction amounts.</p>
+                <a href="https://www.w3schools.com/sql/sql_join.asp" target="_blank" class="mini-link">🔗 Practice: SQL Joins Reference</a>
+            </div>
+
+             
+
+             
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="./mongodb.html" class="menu-link" style="font-size: 20px;">➡️ Next: MongoDB Notes</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'MySQL_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

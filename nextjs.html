@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextJS Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav" style="background-color: #ae2012;">▲ NextJS</a>
+        
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">▲ NextJS Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Web Framework Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro to Next.js, SSR vs CSR &amp; Setup</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to Next.js</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A production-ready React framework for building full-stack web applications.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Developed by Vercel, Next.js extends React by providing hybrid rendering strategies (SSR, SSG, ISR, CSR), file-system routing, automatic code splitting, and server-side optimizations out of the box.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Solves single-page application SEO limitations and slow initial page loads found in plain client-side React.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Building high-performance, search-engine-indexed e-commerce and news platforms.</div>
+                <div class="code-box">// React Library + Server-Side Rendering + File Routing = Next.js Framework</div>
+                <div class="task-box">Task: List 3 key differences in your notebook between a React library and a Next.js framework.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. SSR (Server-Side Rendering) vs CSR (Client-Side Rendering)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Comparison between generating HTML on the backend server versus rendering it inside the browser.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **CSR** (Vanilla React) sends an empty HTML shell; JavaScript builds the UI in the browser. **SSR** (Next.js) renders full HTML on the server per request, sending ready HTML to the browser instantly for superior SEO.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Drastically reduces First Contentful Paint (FCP) time and ensures search engine web crawlers index content properly.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Viewing page source: CSR shows empty `<div id="root"></div>`; SSR shows complete populated HTML text.</div>
+                <div class="code-box"># CSR Flow: Server sends JS bundle ---&gt; Browser executes JS ---&gt; UI appears (Slow SEO)
+# SSR Flow: Server renders HTML ---&gt; Sends populated HTML ---&gt; UI appears instantly (Great SEO)</div>
+                <div class="task-box">Task: Inspect the raw page source of a plain React site versus a Next.js site in Chrome DevTools.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. App Router vs Pages Router Architecture</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The two architectural routing models provided by Next.js.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Pages Router** (Legacy) uses the `pages/` directory where every file is a route. **App Router** (Modern Next.js 13+) uses the `app/` directory built on React Server Components, supporting nested layouts, streaming, and `page.jsx` conventions.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> App Router provides finer control over layout inheritance, performance, and server component execution.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Route `/about` in App Router = `app/about/page.jsx`.</div>
+                <div class="code-box">// App Router Structure:
+// app/
+// ├── layout.jsx  (Root Layout)
+// ├── page.jsx    (Home Page /)
+// └── about/
+//     └── page.jsx (About Page /about)</div>
+                <div class="task-box">Task: Draw the App Router directory layout for routes `/`, `/products`, and `/dashboard`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Setting Up Next.js (`create-next-app`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Initializing a new Next.js project using the official CLI initialization tool.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Executed via `npx create-next-app@latest`. Prompts choices for TypeScript, Tailwind CSS, App Router, ESLint, and import aliases (`@/*`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Scaffolds a zero-configuration, production-configured Next.js workspace instantly.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Initializing and running a Next.js App Router project locally.</div>
+                <div class="code-box">npx create-next-app@latest my-next-app
+cd my-next-app
+npm run dev
+# App starts on http://localhost:3000</div>
+                <div class="task-box">Task: Create a new Next.js project with App Router and Tailwind CSS, then run `npm run dev`.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Next.js Installation & Launch Verification.</p>
+                <p><strong>Action:</strong> Run `npx create-next-app@latest`, select App Router, run `npm run dev`, and modify `app/page.jsx` to display a custom welcome banner.</p>
+                <a href="https://nextjs.org/docs/getting-started/installation" target="_blank" class="mini-link">🔗 Reference: Next.js Installation Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Routing, Layouts & Dynamic Routes</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. File-Based Routing System</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Defining application URL routes through file and folder conventions rather than manual JavaScript routing tables.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Folders define route segments. A `page.jsx` file inside a folder makes that segment publicly accessible. Special files: `layout.jsx`, `loading.jsx`, `error.jsx`, `not-found.jsx`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Automates routing setup and maintains clean file organization without third-party routing packages.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `app/services/page.jsx` automatically creates the route `/services`.</div>
+                <div class="code-box">// app/services/page.jsx
+export default function ServicesPage() {
+  return &lt;h1&gt;Our Services&lt;/h1&gt;;
+}</div>
+                <div class="task-box">Task: Create two new routes `/contact` and `/portfolio` using the file-based folder structure.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Navigation: `<Link>` &amp; `useRouter`</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Performing client-side transitions between Next.js pages without full page refreshes.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `<Link href="/path">` prefetches page routes in the background. The `useRouter()` hook (`next/navigation`) enables programmatic navigation (e.g., `router.push('/dashboard')`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Delivers lightning-fast, app-like client navigation transitions.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Navigating using `<Link>` and programmatic button triggers.</div>
+                <div class="code-box">import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+export default function Navigation() {
+  const router = useRouter();
+  return (
+    &lt;nav&gt;
+      &lt;Link href="/about"&gt;About Us&lt;/Link&gt;
+      &lt;button onClick={() =&gt; router.push('/login')}&gt;Login&lt;/button&gt;
+    &lt;/nav&gt;
+  );
+}</div>
+                <div class="task-box">Task: Build a navigation header linking to 3 internal pages using Next.js `Link` components.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Dynamic Routes (`[id]`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Creating routes that match dynamic URL parameter segments like product IDs or blog slugs.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Folder names wrapped in square brackets `[id]` capture dynamic URL values, accessible inside the page via the `params` prop object (`params.id`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Renders dynamic detail pages for products, users, or articles using a single component template.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> URL `/products/101` matches folder `app/products/[id]/page.jsx`.</div>
+                <div class="code-box">// app/products/[id]/page.jsx
+export default function ProductDetail({ params }) {
+  return &lt;h1&gt;Displaying Product ID: {params.id}&lt;/h1&gt;;
+}</div>
+                <div class="task-box">Task: Create a dynamic route `/blog/[slug]/page.jsx` and render the requested article slug.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Layouts, Templates &amp; Special UI Files</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Shared UI wrappers that preserve state across route navigations, plus automatic loading/error fallbacks.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `layout.jsx` wraps nested child pages without re-rendering the shared layout on route changes. `loading.jsx` displays instant React Suspense fallbacks. `error.jsx` catches runtime exceptions.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Maintains shared navbars/footers and improves user experience during slow page loads.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Root layout wrapping all pages with a navigation header.</div>
+                <div class="code-box">// app/layout.jsx
+export default function RootLayout({ children }) {
+  return (
+    &lt;html lang="en"&gt;
+      &lt;body&gt;
+        &lt;header&gt;My Navbar&lt;/header&gt;
+        &lt;main&gt;{children}&lt;/main&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</div>
+                <div class="task-box">Task: Create a `loading.jsx` component inside a route folder and test its automatic fallback display.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> File-Based & Dynamic Routing Project.</p>
+                <p><strong>Action:</strong> Build a multi-page site: Root Layout with persistent header/footer, `/products` list page, and a dynamic route `/products/[id]` reading `params.id`.</p>
+                <a href="https://nextjs.org/docs/app/building-your-application/routing" target="_blank" class="mini-link">🔗 Reference: Next.js Routing Documentation</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Server vs Client Components & Data Fetching</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Server Components vs Client Components (`'use client'`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The fundamental paradigm split in Next.js App Router between server-executed and browser-executed components.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> By default, **ALL** App Router components are **React Server Components (RSC)** (zero JS bundle sent to client). To use hooks (`useState`, `useEffect`, `useRouter`) or browser event listeners (`onClick`), add the `'use client'` directive at the top of the file.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Keeps client bundle size small while isolating client interactivity where strictly needed.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Adding `'use client'` to an interactive counter button.</div>
+                <div class="code-box">'use client'; // Required for hooks and event listeners!
+
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  return &lt;button onClick={() =&gt; setCount(count + 1)}&gt;{count}&lt;/button&gt;;
+}</div>
+                <div class="task-box">Task: Write a component using `useState` and verify that forgetting `'use client'` throws a build error.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Server-Side Data Fetching &amp; Caching</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Fetching backend data directly inside async Server Components without `useEffect` or client API calls.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Next.js extends the native `fetch()` Web API to support automatic request deduplication, caching, and revalidation (`{ next: { revalidate: 60 } }`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Eliminates loading spinners on the client by delivering pre-rendered, data-populated HTML directly from the server.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Fetching data asynchronously inside an App Router Server Component.</div>
+                <div class="code-box">// Server Component (Async/Await directly!)
+export default async function UsersPage() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users', {
+    next: { revalidate: 3600 } // Revalidate every hour
+  });
+  const users = await res.json();
+
+  return (
+    &lt;ul&gt;
+      {users.map(u =&gt; &lt;li key={u.id}&gt;{u.name}&lt;/li&gt;)}
+    &lt;/ul&gt;
+  );
+}</div>
+                <div class="task-box">Task: Fetch an array of posts asynchronously inside a Server Component and render them in a list.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Next.js Server Actions</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Executing asynchronous server-side code directly from HTML forms without creating separate REST API endpoints.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Defined using the `'use server'` directive. Can be called inside HTML `<form action={myServerAction}>` elements to perform database writes directly on the server.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Simplifies form submissions, database mutations, and revalidation without writing custom API routes.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Handling form submission directly on the server using Server Actions.</div>
+                <div class="code-box">import { revalidatePath } from 'next/cache';
+
+export default function AddItemForm() {
+  async function createItem(formData) {
+    'use server';
+    const itemName = formData.get('itemName');
+    // Save to Database directly...
+    revalidatePath('/items');
+  }
+
+  return (
+    &lt;form action={createItem}&gt;
+      &lt;input name="itemName" required /&gt;
+      &lt;button type="submit"&gt;Add Item&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</div>
+                <div class="task-box">Task: Build a simple form with a Server Action that logs the form input on the server terminal upon submission.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Server Components & Server Fetching.</p>
+                <p><strong>Action:</strong> Create an async Server Component fetching user data from an external REST API. Build an interactive client sub-component using `'use client'` to filter the fetched list.</p>
+                <a href="https://nextjs.org/docs/app/building-your-application/data-fetching" target="_blank" class="mini-link">🔗 Reference: Next.js Data Fetching Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: Image & Font Optimization, SEO & Route Handlers</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Image &amp; Font Optimization (`next/image` &amp; `next/font`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Built-in Next.js components that optimize media and typography automatically.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `<Image />` auto-resizes, converts images to modern WebP/AVIF formats, and prevents Layout Shift (CLS). `next/font` hosts Google Fonts locally at build time with zero external network requests.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Dramatically improves Core Web Vitals, Google Lighthouse scores, and page load speed.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Using Next.js Image component and Google Fonts.</div>
+                <div class="code-box">import Image from 'next/image';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export default function Profile() {
+  return (
+    &lt;div class={inter.className}&gt;
+      &lt;Image src="/avatar.jpg" alt="Profile" width={100} height={100} priority /&gt;
+    &lt;/div&gt;
+  );
+}</div>
+                <div class="task-box">Task: Replace a standard HTML `<img>` tag with the `<Image />` component and specify width, height, and alt props.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Metadata &amp; SEO Optimization</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Managing document head metadata (`title`, `description`, OpenGraph cards) for Search Engine Optimization.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Exporting a `metadata` object or `generateMetadata()` function from `layout.jsx` or `page.jsx` files.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Ensures search engine web crawlers and social media platforms display accurate preview cards for every page route.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Static and dynamic metadata exports.</div>
+                <div class="code-box">// Static Metadata
+export const metadata = {
+  title: 'Somesh Hadve | Next.js Notes',
+  description: 'Handcrafted Full Stack Web Developer Notes',
+  openGraph: {
+    title: 'Somesh Hadve Notes',
+  }
+};</div>
+                <div class="task-box">Task: Export custom metadata with title, description, and keywords in your home page component.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. API Routes &amp; Route Handlers (`route.js`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Creating backend RESTful API endpoints inside the Next.js App Router workspace.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Created using `route.js` files. Named exported functions handle specific HTTP methods: `GET`, `POST`, `PUT`, `DELETE`, `PATCH`. Returns `NextResponse.json()`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows building complete full-stack web applications with backend API endpoints in one unified project.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating a `route.js` file for `/api/users`.</div>
+                <div class="code-box">// app/api/users/route.js
+import { NextResponse } from 'next/server';
+
+export async function GET(request) {
+  const users = [{ id: 1, name: 'Somesh Hadve' }];
+  return NextResponse.json(users);
+}
+
+export async function POST(request) {
+  const body = await request.json();
+  return NextResponse.json({ message: 'User created', data: body }, { status: 201 });
+}</div>
+                <div class="task-box">Task: Create an API Route `app/api/health/route.js` returning a status 200 JSON health response.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Route Handlers & SEO Metadata.</p>
+                <p><strong>Action:</strong> Create a custom API Route `app/api/products/route.js` returning JSON data. Configure OpenGraph SEO metadata in `page.jsx` and use `<Image />` for optimized assets.</p>
+                <a href="https://nextjs.org/docs/app/building-your-application/routing/route-handlers" target="_blank" class="mini-link">🔗 Reference: Next.js Route Handlers Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Build, Deployment & Vercel</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. Building for Production &amp; Deployment (Vercel)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Compiling Next.js source code into optimized production bundles and publishing to live cloud servers.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `npm run build` compiles server components, static pages, and route bundles. `npm run start` launches the production server. Deploying to **Vercel** provides automatic zero-config deployments triggered via GitHub git pushes.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Publishes full-stack Next.js web applications globally with edge CDN caching and automatic scaling.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Production build commands and Vercel CLI deployment.</div>
+                <div class="code-box"># Test production build locally
+npm run build
+npm run start
+
+# Deploy via Vercel CLI
+npx vercel</div>
+                <div class="task-box">Task: Execute `npm run build` locally, fix any build errors, and verify the compiled output static/server pages.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Production Build & Live Cloud Deployment.</p>
+                <p><strong>Action:</strong> Push your Next.js project to GitHub, connect your repository to Vercel, deploy to a live URL, and verify performance scores on Google PageSpeed Insights.</p>
+                <a href="https://vercel.com/docs" target="_blank" class="mini-link">🔗 Reference: Vercel Deployment Documentation</a>
+            </div>
+
+
+            
+
+             
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="./python.html" class="menu-link" style="font-size: 20px;">➡️ Next Subject: Python Notes</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'NextJS_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

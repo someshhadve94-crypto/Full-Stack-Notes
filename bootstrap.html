@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav" style="background-color: #ae2012;">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🅱️ Bootstrap Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro, Grid System & Typography</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to Bootstrap & Versions</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The world's most popular free front-end framework for fast, responsive web development.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A pre-written collection of CSS and JS files that provide standard UI components and a responsive grid system. Current modern version is Bootstrap 5 (dropped jQuery dependency).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Drastically reduces custom CSS writing time and ensures websites are mobile-friendly out of the box.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating a fully styled responsive button by just adding `class="btn btn-primary"` instead of writing 10 lines of CSS.</div>
+                <div class="code-box">&lt;!-- No custom CSS needed! --&gt;
+&lt;button class="btn btn-success"&gt;Click Me&lt;/button&gt;</div>
+                <div class="task-box">Task: Explain in your notebook why Bootstrap 5 is faster than Bootstrap 4 (Hint: Vanilla JS vs jQuery).</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Adding Bootstrap (CDN vs Download)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Methods to integrate the Bootstrap framework into your HTML project.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **CDN (Content Delivery Network):** Linking to Bootstrap files hosted online. **Download:** Saving the CSS/JS files locally in your project folder.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> CDN provides faster load times (cached by browsers). Download allows offline development without internet.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Pasting the CDN link inside the `&lt;head&gt;` of your HTML file.</div>
+                <div class="code-box">&lt;!-- CSS CDN --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;!-- JS CDN (For Modals, Dropdowns) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</div>
+                <div class="task-box">Task: Create a new `index.html` file and successfully link the Bootstrap 5 CSS and JS CDNs.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Bootstrap Grid System (.container, .row, .col)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A 12-column responsive layout system built on CSS Flexbox.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Layouts must follow a strict hierarchy: A `.container` holds `.row`s, and `.row`s hold `.col`umns. The total column span in a row must equal 12.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Aligns content perfectly and handles wrapping on smaller mobile screens automatically.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating two equal 50% width columns using `.col-6`.</div>
+                <div class="code-box">&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-6"&gt;Left Side (50%)&lt;/div&gt;
+    &lt;div class="col-6"&gt;Right Side (50%)&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+                <div class="task-box">Task: Build a 3-column layout where each column takes up 4 spaces (`.col-4`).</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Typography, Text Colors & BG Colors</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Pre-built utility classes to quickly style text sizes and container colors.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Typography: `fs-1` (largest) to `fs-6` (smallest). Colors use semantic names: `primary` (blue), `success` (green), `danger` (red), `warning` (yellow), `dark` (black), `light` (grey). Prefix with `text-` or `bg-`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Colors convey meaning automatically (e.g., red for errors, green for success) without custom CSS.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A large red error message on a dark background.</div>
+                <div class="code-box">&lt;p class="fs-2 text-danger bg-dark p-3"&gt;Error: Invalid Password!&lt;/p&gt;</div>
+                <div class="task-box">Task: Create a `.container` with a `bg-primary` background and `text-light` white text.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Master the 12-Column Grid & Semantic Colors.</p>
+                <p><strong>Action:</strong> Use Bootstrap classes (NO custom CSS) to create a checkerboard layout. Create a container with rows and `.col-6` blocks, alternating `bg-dark text-light` and `bg-light text-dark`. Use `fs-3` for the text.</p>
+                <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" class="mini-link">🔗 Reference: Bootstrap Official Grid Docs</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Components & Responsive Utilities</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. Components: Buttons & Badges</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Pre-styled clickable action elements and small status indicators.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Add `.btn` + `.btn-[color]` to any `&lt;a&gt;` or `&lt;button&gt;`. Badges use `.badge` + `.text-bg-[color]` for small inline labels.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> standardizes UI interactions and highlights notification counts.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A submit button with a "New" notification badge inside it.</div>
+                <div class="code-box">&lt;button class="btn btn-primary"&gt;
+  Messages &lt;span class="badge text-bg-danger"&gt;4&lt;/span&gt;
+&lt;/button&gt;</div>
+                <div class="task-box">Task: Create an outline button using `.btn-outline-success` and add a badge to it.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Components: Cards</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Flexible, boxed content containers with headers, footers, and images.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses `.card` for the wrapper, `.card-img-top` for images, and `.card-body` for padded text content.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> The industry standard layout for displaying products, blog posts, or user profiles.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A standard e-commerce product display box.</div>
+                <div class="code-box">&lt;div class="card" style="width: 18rem;"&gt;
+  &lt;img src="pic.jpg" class="card-img-top" alt="..."&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Product Name&lt;/h5&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;Buy Now&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+                <div class="task-box">Task: Build a 3-column grid (`.col-4`) and place a `.card` inside each column.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Components: Alerts</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Colored feedback messages for user actions.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses `.alert` and semantic color classes like `.alert-success` or `.alert-danger`. Can be dismissible using JS attributes.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Informs users about successful form submissions or login errors.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A green success message after a user registers.</div>
+                <div class="code-box">&lt;div class="alert alert-success" role="alert"&gt;
+  Your account has been created successfully!
+&lt;/div&gt;</div>
+                <div class="task-box">Task: Create a red `.alert-danger` warning users about an invalid password.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Components: Navbar</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A responsive navigation header that collapses into a hamburger menu on mobile.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Built with `.navbar`, `.navbar-brand` (logo), `.navbar-toggler` (mobile button), and `.navbar-collapse` (the menu links).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Provides consistent, mobile-friendly site navigation out of the box.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A dark themed top navigation bar.</div>
+                <div class="code-box">&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
+  &lt;div class="container"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;MySite&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</div>
+                <div class="task-box">Task: Copy the standard Navbar component from the Bootstrap Docs and paste it into your page.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Utilities: Show/Hide & Breakpoints (d-none, d-md-block)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Classes used to instantly hide or show elements based on screen size without custom media queries.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `d-none` hides an element. The `md`, `lg`, `xl` infixes apply rules at specific breakpoints. `d-md-block` means "display as block on medium screens and up".</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Perfect for hiding heavy desktop sidebars when viewing on mobile phones.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Hiding a promotional banner on small screens but showing it on laptops.</div>
+                <div class="code-box">&lt;!-- Hidden on mobile, visible on medium+ --&gt;
+&lt;div class="d-none d-md-block bg-info"&gt;Desktop Banner&lt;/div&gt;</div>
+                <div class="task-box">Task: Create a div that says "Mobile View" (visible on mobile only) and one that says "Desktop View".</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Utilities: Responsive Text & Alignment</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Adjusting text alignment dynamically based on the device width.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Classes like `text-center`, `text-start` (left), and `text-end` (right). Can be combined with breakpoints: `text-center text-md-start`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Keeps text centered on narrow phone screens for readability, but left-aligned on wide desktop monitors.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A heading that centers itself only on mobile devices.</div>
+                <div class="code-box">&lt;h2 class="text-center text-md-start"&gt;Responsive Title&lt;/h2&gt;</div>
+                <div class="task-box">Task: Write a paragraph that aligns to the right on desktop, but centers on mobile.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Build a complete component-based UI without writing custom CSS.</p>
+                <p><strong>Action:</strong> Build a top Navbar (`bg-primary`). Below it, use the Grid system to place 3 Cards. Add a blue Badge to the first card, and hide the 3rd card on mobile screens using `d-none d-md-block`.</p>
+                <a href="https://getbootstrap.com/docs/5.3/components/card/" target="_blank" class="mini-link">🔗 Reference: Bootstrap Cards</a>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Forms, JS Components & UI Polish</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Forms & Input Styling</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Standardized classes that make raw HTML forms look professional and uniform.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Apply `.form-control` to text inputs/textareas, `.form-select` to dropdowns, and `.form-label` to labels.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Automatically sets 100% width, adds soft borders, and provides a glowing blue focus ring on click.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A clean email input field.</div>
+                <div class="code-box">&lt;div class="mb-3"&gt;
+  &lt;label class="form-label"&gt;Email address&lt;/label&gt;
+  &lt;input type="email" class="form-control" placeholder="name@example.com"&gt;
+&lt;/div&gt;</div>
+                <div class="task-box">Task: Build a Login form with Email, Password (`.form-control`), and a Submit button.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. JS Components: Modals</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A popup dialog box overlaid on the main screen that requires user interaction.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses `data-bs-toggle="modal"` on a button to trigger a hidden `.modal` container via Bootstrap's built-in JavaScript.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used for "Confirm Delete" warnings, image lightboxes, or quick login forms without leaving the page.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A button opening a popup window.</div>
+                <div class="code-box">&lt;button data-bs-toggle="modal" data-bs-target="#myModal"&gt;Open&lt;/button&gt;
+&lt;!-- Modal HTML structure goes here --&gt;</div>
+                <div class="task-box">Task: Copy the standard Modal from the Bootstrap Docs and trigger it using a green success button.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. JS Components: Dropdowns & Collapse (Accordion)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Interactive elements that toggle content visibility on click.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Dropdowns** open a menu list (`.dropdown-menu`). **Collapse / Accordions** slide open vertical panels of content (`data-bs-toggle="collapse"`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Saves screen space by hiding secondary menus and long FAQ answers until clicked.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> An FAQ Accordion hiding answers.</div>
+                <div class="code-box">&lt;button data-bs-toggle="collapse" data-bs-target="#faq1"&gt;Show Answer&lt;/button&gt;
+&lt;div id="faq1" class="collapse"&gt;This is the hidden answer.&lt;/div&gt;</div>
+                <div class="task-box">Task: Build a 2-item Accordion for a Frequently Asked Questions (FAQ) section.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. JS Components: Carousel</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A slideshow component for cycling through images or text.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Built with `.carousel`, `.carousel-inner` holding `.carousel-item`s. Includes next/prev controls and indicators.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Creates highly interactive image galleries and hero banner sliders on landing pages.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A rotating slider of 3 promotional images.</div>
+                <div class="code-box">&lt;div class="carousel slide" data-bs-ride="carousel"&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="carousel-item active"&gt;&lt;img src="img1.jpg"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+                <div class="task-box">Task: Implement a Carousel with 3 dummy images and enable auto-sliding.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. Borders, Rounded Corners & Font Awesome</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Final polish utilities and external icon integration.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `.border`, `.border-danger` add colored strokes. `.rounded`, `.rounded-circle` handle border-radius. **Font Awesome** is an external icon CDN used alongside Bootstrap.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Rounds out sharp edges, outlines sections, and replaces text with visual icons (like search magnifying glasses).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A circular profile picture with a thick blue border and a FontAwesome user icon.</div>
+                <div class="code-box">&lt;img src="avatar.jpg" class="rounded-circle border border-primary border-3"&gt;
+&lt;i class="fa-solid fa-user"&gt;&lt;/i&gt;</div>
+                <div class="task-box">Task: Add the Font Awesome CDN to your `<head>` and render a glowing star icon `<i class="fa-solid fa-star text-warning"></i>`.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 & Final BS Assignment</h3>
+                <p><strong>Goal:</strong> Complete Front-End Corporate Website Clone.</p>
+                <p><strong>Action:</strong> Design a complete front-end landing page for <strong>Priya Upadhyay</strong> or <strong>Robo Capital</strong>. Use ONLY Bootstrap 5. Must include: A sticky Navbar, a Carousel hero header, a 3-column Card services grid, an Accordion FAQ, and a Contact Form.</p>
+                <a href="https://getbootstrap.com/docs/5.3/examples/" target="_blank" class="mini-link">🔗 Reference: View Bootstrap Official Templates</a>
+            </div>
+
+             <div style="text-align: center; margin-top: 30px;">
+                <a href="./reactjs.html" class="menu-link" style="font-size: 20px;">➡️ Proceed to Next Subject: reactjs Notes</a>
+            </div>
+
+             
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'Bootstrap_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

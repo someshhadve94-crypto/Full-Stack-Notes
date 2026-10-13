@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JavaScript Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav" style="background-color: #ae2012;">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🚀 Advanced JavaScript Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Scope, Closures &amp; Functional Patterns</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Lexical Scope &amp; Scope Chain</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> How variable accessibility is determined strictly by the physical position of functions inside the source code at compile time.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Inner functions have access to variables declared in their outer enclosing scope. When a variable is referenced, JS searches locally; if not found, it traverses up the **Scope Chain** to the global environment.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Establishes predictable variable lookup rules and encapsulation boundaries across nested functions.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> An inner function accessing a global variable through the scope chain.</div>
+                <div class="code-box">const globalVar = "Global";
+
+function outer() {
+  const outerVar = "Outer";
+  function inner() {
+    console.log(globalVar, outerVar); // Accesses both via Scope Chain
+  }
+  inner();
+}
+outer();</div>
+                <div class="task-box">Task: Draw a scope chain diagram for a 3-level nested function hierarchy in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Closures &amp; Private Variables</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A function bundled together with references to its surrounding lexical environment, allowing it to remember outer variables even after the outer function has finished executing.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Created whenever an inner function is returned or passed out of an outer function. The inner function retains access to the outer function's scope variables, effectively creating private encapsulation.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables data privacy, state preservation, function factories, and module design patterns.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A counter with a private internal state variable.</div>
+                <div class="code-box">function createCounter() {
+  let count = 0; // Private variable!
+  return {
+    increment: () =&gt; ++count,
+    decrement: () =&gt; --count,
+    getCount: () =&gt; count
+  };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // 1
+console.log(counter.count); // undefined (Safe &amp; Encapsulated!)</div>
+                <div class="task-box">Task: Create a function `createBankAccount(initialBalance)` that encapsulates `balance` using a closure.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. IIFE (Immediately Invoked Function Expressions)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A JavaScript function that runs as soon as it is defined.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Wrapped inside grouping parentheses `(function() { ... })()` to prevent the function declaration from polluting the global scope. Executes immediately upon parsing.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Creates isolated scope blocks to initialize setup code without polluting global namespace or colliding with other scripts.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Isolating initialization logic using an IIFE.</div>
+                <div class="code-box">(function() {
+  const tempConfig = "API_KEY_12345";
+  console.log("IIFE Initialized with:", tempConfig);
+})();
+
+// tempConfig is inaccessible outside (No global pollution)</div>
+                <div class="task-box">Task: Write an IIFE that calculates and logs the execution start time without leaving global variables behind.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. Function Currying</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> An advanced functional programming technique that transforms a function with multiple arguments into a sequence of nesting functions taking one argument each.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Instead of `f(a, b, c)`, currying turns a function into `f(a)(b)(c)`. Utilizes closures to remember passed parameters across step-by-step function calls.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Promotes function reusability, partial application, and configurable utility functions.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Currying a discount calculation function.</div>
+                <div class="code-box">// Standard: multiply(a, b)
+// Curried Version:
+const multiply = a =&gt; b =&gt; a * b;
+
+const double = multiply(2); // Partial application
+console.log(double(5)); // 10
+console.log(multiply(3)(4)); // 12</div>
+                <div class="task-box">Task: Write a curried function `volume(length)(width)(height)` and test it.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Closures & Currying Practice.</p>
+                <p><strong>Action:</strong> Write a custom logger function using Currying: `logger(level)(message)`. Then build a closure-based memoization function `memoize(fn)` that caches calculation results for identical inputs.</p>
+                <a href="https://javascript.info/closure" target="_blank" class="mini-link">🔗 Reference: JavaScript.info Closures & Scope Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Event Loop, Execution Context &amp; Async Deep Dive</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. Call Stack, Execution Context &amp; Hoisting</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> How the JS engine parses, manages, and executes code in memory.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Execution Context** has 2 phases: Creation Phase (Memory Allocation/Hoisting) and Execution Phase. **Call Stack** is a LIFO (Last In, First Out) stack tracking function execution frames.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Explains how variables/functions are hoisted and how synchronous call stacks behave under execution.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Function calls pushing and popping frames off the Call Stack.</div>
+                <div class="code-box">function first() { second(); }
+function second() { console.log("Done"); }
+
+first(); // Pushes first() -&gt; Pushes second() -&gt; Pops second() -&gt; Pops first()</div>
+                <div class="task-box">Task: Explain in your notebook why `var` declarations are hoisted as `undefined` while `let`/`const` enter the Temporal Dead Zone (TDZ).</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. The Event Loop, Microtask &amp; Macrotask Queues</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The concurrency model mechanism that manages asynchronous callback execution in single-threaded JavaScript.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> The **Event Loop** continuously checks if the Call Stack is empty. If empty, it empties the **Microtask Queue** (Promises, `queueMicrotask`, `process.nextTick`) FIRST before picking one task from the **Macrotask Queue** (`setTimeout`, `setInterval`, I/O).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Crucial for predicting asynchronous code execution order and avoiding UI thread blocking.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Order of execution between Promise microtasks and setTimeout macrotasks.</div>
+                <div class="code-box">console.log("1. Start");
+
+setTimeout(() =&gt; console.log("2. Macrotask Timeout"), 0);
+
+Promise.resolve().then(() =&gt; console.log("3. Microtask Promise"));
+
+console.log("4. End");
+
+// Output Order: 1. Start -&gt; 4. End -&gt; 3. Microtask Promise -&gt; 2. Macrotask Timeout</div>
+                <div class="task-box">Task: Trace and write down the exact console output sequence for a script containing `setTimeout`, `Promise`, and `console.log`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Promise Combinators (`Promise.all`, `allSettled`, `race`, `any`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Static utility methods for handling multiple asynchronous promises concurrently.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> 
+                    <b>`Promise.all`</b>: Resolves when ALL pass; rejects on FIRST failure. 
+                    <b>`Promise.allSettled`</b>: Resolves when ALL complete (returns array of status objects). 
+                    <b>`Promise.race`</b>: Resolves/rejects as soon as the FIRST promise settles. 
+                    <b>`Promise.any`</b>: Resolves as soon as the FIRST promise succeeds.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Manages parallel network requests efficiently in high-performance applications.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Fetching multiple API endpoints in parallel using `Promise.all`.</div>
+                <div class="code-box">const p1 = fetch('/api/users');
+const p2 = fetch('/api/posts');
+
+Promise.all([p1, p2])
+  .then(([usersRes, postsRes]) =&gt; console.log("Both APIs fetched!"))
+  .catch(err =&gt; console.error("One failed:", err));</div>
+                <div class="task-box">Task: Write a script comparing `Promise.all` vs `Promise.allSettled` when one promise rejects.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Event Loop Order & Parallel Fetching.</p>
+                <p><strong>Action:</strong> Build a parallel data loader using `Promise.allSettled()` to fetch user profile, orders, and notifications simultaneously from mock APIs with simulated delays.</p>
+                <a href="https://javascript.info/event-loop" target="_blank" class="mini-link">🔗 Reference: Event Loop & Microtasks Visual Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Prototypes, OOP &amp; Class Mechanics</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Prototype &amp; Prototype Chain (`__proto__` vs `prototype`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> JavaScript's underlying object-oriented inheritance mechanism based on prototype linkage.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Every object has an internal link (`__proto__`) to its prototype object. Constructor functions have a `.prototype` property. When a property is queried, JS traverses up the **Prototype Chain** until it finds the property or hits `null`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows memory-efficient method sharing across thousands of object instances.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Adding a shared method to a constructor function's prototype.</div>
+                <div class="code-box">function Person(name) {
+  this.name = name;
+}
+
+// Shared prototype method (Memory Efficient)
+Person.prototype.sayHi = function() {
+  console.log(`Hi, I am ${this.name}`);
+};
+
+const user1 = new Person("Somesh");
+user1.sayHi();</div>
+                <div class="task-box">Task: Inspect `user1.__proto__` in Chrome console and verify `user1.__proto__ === Person.prototype`.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. ES6 Classes &amp; Prototypal Inheritance (`extends`, `super`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Syntactic sugar over JavaScript's prototypal inheritance model providing clean object-oriented class syntax.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses `class`, `constructor()`, `extends` (subclassing), and `super()` (calling parent constructor). Supports static methods (`static`) and private fields (`#privateField`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Simplifies object-oriented programming patterns and inheritance structures in JavaScript.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Inheriting methods from a parent class using `extends` and `super`.</div>
+                <div class="code-box">class Vehicle {
+  constructor(brand) { this.brand = brand; }
+  start() { console.log(`${this.brand} starting...`); }
+}
+
+class Car extends Vehicle {
+  constructor(brand, model) {
+    super(brand); // Call parent constructor
+    this.model = model;
+  }
+}
+
+const myCar = new Car("Toyota", "Camry");
+myCar.start();</div>
+                <div class="task-box">Task: Create a `User` parent class and an `Admin` child class with an additional `permissions` array property.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Object Immutability &amp; Descriptors (`freeze`, `seal`, `defineProperty`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Controlling object property behaviors, writability, configurability, and immutability.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `Object.defineProperty()` sets property descriptors (`writable`, `enumerable`, `configurable`). `Object.seal()` prevents adding/deleting properties. `Object.freeze()` makes an object completely immutable (shallow freeze).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Secures application state configurations and constants against accidental modification.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Freezing an application configuration object.</div>
+                <div class="code-box">const CONFIG = Object.freeze({
+  API_URL: "https://api.example.com",
+  VERSION: "1.0.0"
+});
+
+// CONFIG.VERSION = "2.0.0"; // Fails silently or throws error in strict mode!</div>
+                <div class="task-box">Task: Use `Object.defineProperty()` to create a read-only, non-enumerable property on an object.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> ES6 Classes & Inheritance Architecture.</p>
+                <p><strong>Action:</strong> Design a `Shape` class hierarchy: `Shape` (parent) with a method `getArea()`, inherited by `Circle` and `Rectangle` sub-classes using `super()`. Freeze static configuration constants using `Object.freeze()`.</p>
+                <a href="https://javascript.info/classes" target="_blank" class="mini-link">🔗 Reference: JavaScript.info Classes & Prototype Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: The `this` Keyword & Method Borrowing</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Mechanics of the `this` Keyword</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A dynamic execution context reference determined strictly by **how** a function is called.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> 
+                    1) Global scope: `window` (or `undefined` in strict mode). 
+                    2) Object Method: refers to the calling object. 
+                    3) Constructor (`new`): refers to the newly created object. 
+                    4) Arrow Functions: **do not have their own `this`**; they lexically inherit `this` from enclosing scope.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows functions to operate dynamically on different target object contexts.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> How `this` differs between regular methods and arrow functions inside object timers.</div>
+                <div class="code-box">const user = {
+  name: "Somesh",
+  regularFunc: function() { console.log(this.name); }, // "Somesh"
+  arrowFunc: () =&gt; { console.log(this.name); } // undefined (lexical window scope)
+};</div>
+                <div class="task-box">Task: Explain in your notebook why arrow functions should NOT be used as object methods or prototype methods.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Method Borrowing: `call()`, `apply()` &amp; `bind()`</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Explicitly controlling and overriding the `this` context binding of any function.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> 
+                    <b>`call(thisArg, arg1, arg2)`</b>: Invokes function immediately with explicit `this` and individual arguments. 
+                    <b>`apply(thisArg, [argsArray])`</b>: Invokes function immediately accepting arguments as an Array. 
+                    <b>`bind(thisArg)`</b>: Returns a **new bound function** with fixed `this` for later invocation.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables method borrowing between objects and preserving `this` context in async event callbacks.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Borrowing a greeting method for a different person object.</div>
+                <div class="code-box">const person1 = { name: "Somesh" };
+const person2 = { name: "Aarav" };
+
+function greet(city, country) {
+  console.log(`Hello ${this.name} from ${city}, ${country}`);
+}
+
+// Explicit binding:
+greet.call(person1, "Mumbai", "India");
+greet.apply(person2, ["Delhi", "India"]);
+
+// Bound function for later:
+const boundGreet = greet.bind(person1, "Pune", "India");
+boundGreet();</div>
+                <div class="task-box">Task: Write a script borrowing `Array.prototype.slice.call()` to convert an `arguments` object into a real array.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Method Borrowing & Explicit Binding.</p>
+                <p><strong>Action:</strong> Create a generic tax calculator function. Use `call()`, `apply()`, and `bind()` to borrow the function for different customer account objects in different tax brackets.</p>
+                <a href="https://javascript.info/bind" target="_blank" class="mini-link">🔗 Reference: Explicit Binding call/apply/bind Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Memory Management, Performance & DOM Patterns</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. Memory Management &amp; Garbage Collection</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> How JavaScript automatically allocates and reclaims memory using garbage collection algorithms.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Uses the **Mark-and-Sweep Algorithm**. The engine starts at global root objects, "marks" all reachable objects, and "sweeps" unreferenced/unreachable memory blocks to free memory.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Ensures efficient RAM utilization during long-running web application sessions.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Setting an object reference to `null` to make it eligible for garbage collection.</div>
+                <div class="code-box">let data = { hugeArray: new Array(1000000) };
+// Process data...
+data = null; // Unreachable -&gt; Swept by Garbage Collector</div>
+                <div class="task-box">Task: Explain the Mark-and-Sweep garbage collection algorithm step-by-step in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. Identifying &amp; Preventing Memory Leaks</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Memory that is no longer needed by the application but is not returned to the operating system or pool.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Common causes: 1) Accidental global variables. 2) Forgotten `setInterval` timers. 3) Unremoved DOM event listeners. 4) Detached DOM nodes held in closures.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prevents web browser tabs from slowing down, freezing, or crashing due to RAM consumption growth.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> A forgotten interval timer leaking memory.</div>
+                <div class="code-box">// LEAK RISK:
+function startLeak() {
+  const hugeData = new Array(1000000);
+  setInterval(() =&gt; {
+    console.log(hugeData.length); // Closure keeps hugeData in memory forever!
+  }, 1000);
+}</div>
+                <div class="task-box">Task: List 4 common sources of JavaScript memory leaks and write the code fix for each.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. Performance Optimization: Debouncing</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A rate-limiting technique that delays executing a function until a specified time delay has elapsed since the user last triggered the event.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Every new event trigger resets the internal timer (`clearTimeout`). The target callback executes ONLY after the user stops triggering events for the specified delay duration.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Optimizes search input fields, auto-save triggers, and window resize listeners to prevent spamming server APIs.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Debouncing a search input field by 300ms.</div>
+                <div class="code-box">function debounce(fn, delay) {
+  let timer;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() =&gt; fn.apply(this, args), delay);
+  };
+}
+
+const handleSearch = debounce((query) =&gt; {
+  console.log("Fetching API for:", query);
+}, 300);</div>
+                <div class="task-box">Task: Implement a debounced search input field that logs the value 500ms after user stops typing.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">16. Performance Optimization: Throttling</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A rate-limiting technique that enforces a maximum frequency rate at which a function can execute over time.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Ensures a function executes at most **once every X milliseconds**, regardless of how many times the user triggers the event.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Optimizes high-frequency continuous events like scroll position monitoring, infinite scroll triggers, and button click spamming.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Throttling window scroll event listeners.</div>
+                <div class="code-box">function throttle(fn, limit) {
+  let inThrottle = false;
+  return function(...args) {
+    if (!inThrottle) {
+      fn.apply(this, args);
+      inThrottle = true;
+      setTimeout(() =&gt; inThrottle = false, limit);
+    }
+  };
+}
+
+const handleScroll = throttle(() =&gt; {
+  console.log("Scroll position calculated!");
+}, 1000);</div>
+                <div class="task-box">Task: Explain in your notebook when to choose Debouncing versus when to choose Throttling.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">17. Event Delegation Pattern</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A DOM performance pattern where a single event listener is attached to a parent container to manage events for all current and future child elements.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Leverages **Event Bubbling** (events propagating up the DOM tree). The parent listener inspects `event.target` to handle clicks for child elements dynamically.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Reduces memory footprint by avoiding attaching hundreds of separate event listeners to dynamic list items.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Handling list item clicks via a single parent `<ul>` listener.</div>
+                <div class="code-box">const list = document.querySelector('#todo-list');
+
+// Single event listener on parent!
+list.addEventListener('click', (event) =&gt; {
+  if (event.target.tagName === 'BUTTON') {
+    console.log("Deleted item:", event.target.parentElement.innerText);
+  }
+});</div>
+                <div class="task-box">Task: Create a dynamic list where clicking a "Delete" button removes the row using Event Delegation on the parent list.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Debounce, Throttle & Event Delegation Utility Suite.</p>
+                <p><strong>Action:</strong> Build a performance test page: 1. A search input using Debouncing (300ms). 2. A scroll position monitor using Throttling (500ms). 3. A dynamic task list using Event Delegation on the main container.</p>
+                <a href="https://javascript.info/event-delegation" target="_blank" class="mini-link">🔗 Reference: JavaScript.info Event Delegation & Optimization Guide</a>
+            </div>
+
+
+             
+
+             
+
+             <div style="text-align: center; margin-top: 30px;">
+                <a href="./bootstrap.html" class="menu-link" style="font-size: 20px;">➡️ Proceed to Next Subject: bootstrap Notes</a>
+            </div>
+
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'Advanced_JavaScript_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

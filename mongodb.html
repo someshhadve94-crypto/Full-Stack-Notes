@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+        .test-box {
+            background-color: #ffe5d9;
+            border: 2px solid #d62828;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+        
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav" style="background-color: #ae2012;">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🍃 MongoDB Complete Handwritten Notes</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Intro to MongoDB, Differences &amp; Core Architecture</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to MongoDB</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A popular, open-source NoSQL (non-relational) document-oriented database.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> MongoDB stores data in flexible, JSON-like documents called BSON (Binary JSON), allowing data fields to vary from document to document without a fixed schema.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Designed for high scalability, real-time analytics, rapid development, and handling unstructured or semi-structured data.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Storing user profiles with variable attributes (e.g., some users have Twitter handles, others have phone numbers).</div>
+                <div class="code-box">// MongoDB Document (BSON/JSON format)
+{
+  "_id": ObjectId("65a1b2c3d4e5f67890a1b2c3"),
+  "name": "Somesh Hadve",
+  "skills": ["JavaScript", "React", "MongoDB"]
+}</div>
+                <div class="task-box">Task: Explain in your notebook why BSON is used internally by MongoDB instead of plain text JSON.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. SQL vs NoSQL Differences</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The structural and architectural differences between Relational (SQL) and Non-Relational (NoSQL) databases.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **SQL** databases (MySQL, PostgreSQL) use fixed table schemas, rows, columns, and foreign key JOINs. **NoSQL** databases (MongoDB) use dynamic schemas, JSON documents, collections, and horizontal scaling (Sharding).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Helps developers choose the right database system based on schema stability and scaling requirements.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> SQL = Strict Banking Systems; NoSQL = Social Media feeds, IoT logs, and E-commerce catalogs.</div>
+                <div class="code-box"># SQL: Rigid Tables &amp; Rows | Vertical Scaling (Scale Up CPU/RAM)
+# NoSQL: Flexible Documents &amp; Collections | Horizontal Scaling (Scale Out Nodes)</div>
+                <div class="task-box">Task: Write a comparison table in your notebook highlighting 4 key differences between MySQL and MongoDB.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Rows &amp; Columns vs Documents &amp; Collections</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Mapping traditional SQL database concepts to MongoDB NoSQL terminology.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A SQL **Table** corresponds to a MongoDB **Collection**. A SQL **Row/Record** corresponds to a MongoDB **Document**. A SQL **Column** corresponds to a MongoDB **Field**.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables developers transitioning from SQL to quickly grasp MongoDB organizational hierarchy.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `users` table with 5 rows = `users` collection containing 5 BSON documents.</div>
+                <div class="code-box">// SQL Term --------&gt; MongoDB Term
+// Database --------&gt; Database
+// Table -----------&gt; Collection
+// Row -------------&gt; Document
+// Column ----------&gt; Field
+// Joins -----------&gt; $lookup / Embedded Documents</div>
+                <div class="task-box">Task: Draw a side-by-side diagram converting a 3-row MySQL table into 3 MongoDB JSON documents.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> MongoDB Installation & Community Shell Setup.</p>
+                <p><strong>Action:</strong> Install MongoDB Community Server and MongoDB Compass/mongosh. Create a local database `school_db` and insert your first document into a `students` collection.</p>
+                <a href="https://www.mongodb.com/docs/manual/introduction/" target="_blank" class="mini-link">🔗 Reference: MongoDB Official Manual Intro</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: CRUD Operations & Querying Deep Dive</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. CRUD: Create Operations (`insertOne`, `insertMany`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Inserting single or multiple BSON documents into a collection.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `db.collection.insertOne(doc)` inserts one document. `db.collection.insertMany([doc1, doc2])` inserts an array of documents. MongoDB automatically generates a unique `_id` field if not provided.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used for saving new records such as user registrations, product additions, or blog posts.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Inserting a new product document into the `products` collection.</div>
+                <div class="code-box">db.products.insertOne({
+  name: "Wireless Mouse",
+  price: 499,
+  category: "Electronics",
+  inStock: true
+});</div>
+                <div class="task-box">Task: Use `insertMany()` to add 3 student documents with fields `name`, `age`, and `grade` to the `students` collection.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. CRUD: Read Operations &amp; Query Operators (`find`, `$gt`, `$in`, `$or`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Querying documents from a collection with comparison and logical filter conditions.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `db.collection.find(query, projection)` fetches documents matching query filters. Comparison operators: `$gt` (greater than), `$gte`, `$lt`, `$lte`, `$ne`, `$in` (matches values in array). Logical: `$or`, `$and`, `$not`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers search filters, price ranges, and conditional data retrieval.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Finding products priced over 500 OR in category 'Electronics'.</div>
+                <div class="code-box">db.products.find({
+  $or: [
+    { price: { $gt: 500 } },
+    { category: { $in: ["Electronics", "Gadgets"] } }
+  ]
+});</div>
+                <div class="task-box">Task: Write a query that finds all students aged 18 or older with grade "A".</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. CRUD: Update Operations (`updateOne`, `updateMany`, `$set`, `$inc`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Modifying existing fields or adding new fields to stored documents.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `updateOne(filter, update)` modifies the first matching document. `updateMany(filter, update)` modifies all matching documents. Update operators: `$set` (overwrites/adds field), `$inc` (increments numeric field), `$push` (adds item to array).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Allows updating user profile data, incrementing inventory stock counts, or appending array tags.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Incrementing price by 50 and setting `onSale: true`.</div>
+                <div class="code-box">db.products.updateMany(
+  { category: "Electronics" },
+  { 
+    $inc: { price: 50 },
+    $set: { onSale: true }
+  }
+);</div>
+                <div class="task-box">Task: Write an `updateOne()` query that updates a student's age and adds a new `email` field.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. CRUD: Delete Operations (`deleteOne`, `deleteMany`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Removing documents matching specific criteria from a collection.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `deleteOne(filter)` deletes the first matching document. `deleteMany(filter)` deletes all documents matching the filter. Passing an empty filter `{}` deletes ALL documents in the collection!</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Used for deleting user accounts, removing out-of-stock items, or purging temporary data.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Deleting all out-of-stock products.</div>
+                <div class="code-box">db.products.deleteMany({ inStock: false });</div>
+                <div class="task-box">Task: Delete a single student document by `_id` using `deleteOne()`.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Complete MongoDB CRUD Commands.</p>
+                <p><strong>Action:</strong> Using `mongosh` or Compass: 1. Insert 5 products. 2. Find items priced between 100 and 1000 using `$gt` and `$lt`. 3. Update stock using `$inc`. 4. Delete items matching a condition.</p>
+                <a href="https://www.mongodb.com/docs/manual/crud/" target="_blank" class="mini-link">🔗 Reference: MongoDB CRUD Operations Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Indexing & Aggregation Framework</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Indexing in MongoDB (`createIndex`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Data structures that improve query execution speed by avoiding full collection scans.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Created using `db.collection.createIndex({ field: 1 })` (1 for ascending, -1 for descending). Supports Single Field Indexes, Compound Indexes, and Unique Indexes.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Crucial for query performance optimization on collections containing millions of documents.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Creating a unique index on the `email` field.</div>
+                <div class="code-box">db.users.createIndex({ email: 1 }, { unique: true });
+db.products.createIndex({ category: 1, price: -1 });</div>
+                <div class="task-box">Task: Create a compound index on `category` and `name` fields in your products collection.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Aggregation Framework (`$match`, `$group`, `$project`, `$sort`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> A data processing pipeline that processes documents through multi-stage pipelines to transform and return aggregated results.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Executed via `db.collection.aggregate([stage1, stage2, ...])`. Key pipeline stages: **`$match`** (filters documents), **`$group`** (groups by key and computes `$sum`, `$avg`, `$min`, `$max`), **`$project`** (shapes output fields), **`$sort`** (orders results).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Powers complex analytics, sales reporting, category totals, and data transformations.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Calculating total sales and average price per category.</div>
+                <div class="code-box">db.products.aggregate([
+  { $match: { inStock: true } },
+  { 
+    $group: { 
+      _id: "$category", 
+      totalProducts: { $sum: 1 },
+      avgPrice: { $avg: "$price" } 
+    } 
+  },
+  { $sort: { totalProducts: -1 } }
+]);</div>
+                <div class="task-box">Task: Write an aggregation pipeline that groups students by `grade` and calculates the average age for each grade.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Aggregation Pipelines & Indexes.</p>
+                <p><strong>Action:</strong> Build an aggregation pipeline on a `sales` collection that filters completed orders (`$match`), calculates total revenue per product (`$group`), and sorts results descending (`$sort`).</p>
+                <a href="https://www.mongodb.com/docs/manual/aggregation/" target="_blank" class="mini-link">🔗 Reference: MongoDB Aggregation Pipeline Docs</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: Data Modeling & Backend Integration</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Data Modeling (Embedded vs Referenced Documents)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Designing MongoDB document schemas based on application access patterns.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Embedded Documents (Denormalization)** store related sub-data directly inside a single document (ideal for 1-to-1 or 1-to-Few relationships). **Referenced Documents (Normalization)** store ObjectIds pointing to documents in another collection (ideal for 1-to-Many or Many-to-Many relationships).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Optimizes read/write efficiency and prevents exceeding the 16MB document size limit.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Embedding address inside user document vs referencing orders by ObjectId.</div>
+                <div class="code-box">// Embedded Schema
+{
+  name: "Alex",
+  address: { street: "123 Main St", city: "Mumbai" } // Embedded
+}
+
+// Referenced Schema
+{
+  name: "Alex",
+  orders: [ ObjectId("65a1..."), ObjectId("65a2...") ] // Referenced
+}</div>
+                <div class="task-box">Task: Explain when to use Embedded documents versus Referenced documents in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. MongoDB with Backend (NodeJS + Mongoose ODM)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Connecting MongoDB to a NodeJS/Express backend using Mongoose Object Data Modeling (ODM).</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Mongoose provides a straight-forward, schema-based solution to model application data (`new mongoose.Schema()`), enforce validation, and run async queries (`Product.find()`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Brings structure, schema validation, and middleware hooks to MongoDB within Node backend applications.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Defining a Mongoose Schema and Model in NodeJS.</div>
+                <div class="code-box">const mongoose = require('mongoose');
+
+// Connect
+mongoose.connect('mongodb://127.0.0.1:27017/shop_db');
+
+// Schema &amp; Model
+const productSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  price: { type: Number, min: 0 }
+});
+
+const Product = mongoose.model('Product', productSchema);</div>
+                <div class="task-box">Task: Connect Mongoose to a local MongoDB database and create a `User` model with validation rules.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Node.js + Express + Mongoose Integration.</p>
+                <p><strong>Action:</strong> Build an Express API connecting to MongoDB via Mongoose. Implement POST `/api/users` (create user) and GET `/api/users` (fetch users) with schema validation.</p>
+                <a href="https://mongoosejs.com/docs/guide.html" target="_blank" class="mini-link">🔗 Reference: Mongoose Official Guide</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 05
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 05 | Module 05: Backup, Restore & Cloud Deployment</span>
+                <span class="lecture-badge">Day 5</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Backup &amp; Restore (`mongodump` &amp; `mongorestore`)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Database maintenance utilities used to export binary backups and restore them.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `mongodump --db=dbname --out=/backup/dir` exports collection data to BSON files. `mongorestore --db=dbname /backup/dir/dbname` restores the data back into MongoDB.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Essential for disaster recovery, data migration, and routine server backup schedules.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Backing up a local database before server maintenance.</div>
+                <div class="code-box"># Export backup
+mongodump --db=school_db --out=./backup
+
+# Restore backup
+mongorestore --db=school_db ./backup/school_db</div>
+                <div class="task-box">Task: Run `mongodump` in terminal to back up a database and inspect the generated BSON files.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. MongoDB Cloud Deployment (MongoDB Atlas)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Hosting MongoDB databases on fully managed cloud infrastructure via MongoDB Atlas.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Cloud-hosted DBaaS (Database-as-a-Service) providing automated scaling, cluster management, IP whitelisting, database user security, and connection strings (`mongodb+srv://...`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Deploys production-ready MongoDB databases accessible securely by live cloud backends (Render, Heroku, AWS).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Connecting a NodeJS application to MongoDB Atlas using an environment URI string.</div>
+                <div class="code-box">const ATLAS_URI = "mongodb+srv://admin:secret123@cluster0.abcde.mongodb.net/prod_db";
+
+mongoose.connect(ATLAS_URI)
+  .then(() =&gt; console.log('Connected to MongoDB Atlas Cloud!'));</div>
+                <div class="task-box">Task: Create a free MongoDB Atlas cluster, whitelist your IP address, and retrieve your connection string.</div>
+            </div>
+
+            <div class="mini-assignment">
+                <h3>📝 Lecture 5 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Cloud Migration to MongoDB Atlas.</p>
+                <p><strong>Action:</strong> Export local database BSON using `mongodump`, create a MongoDB Atlas Cloud cluster, connect your Express/Node app to Atlas URI via `.env`, and test live remote queries.</p>
+                <a href="https://www.mongodb.com/docs/atlas/" target="_blank" class="mini-link">🔗 Reference: MongoDB Atlas Cloud Getting Started</a>
+            </div>
+
+
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="./django.html" class="menu-link" style="font-size: 20px;">➡️ Next Subject: Django Notes</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'MongoDB_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

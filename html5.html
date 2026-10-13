@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Handwritten Notes - Somesh Hadve</title>
+    <link rel="stylesheet" href="shared-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .lecture-header {
+            background: linear-gradient(135deg, #005f73, #0a9396);
+            color: #ffffff;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 35px 0 20px 0;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lecture-badge {
+            background-color: #ee9b00;
+            color: #000;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        /* New Mini Assignment Section - Clean & Small */
+        .mini-assignment {
+            background-color: #f1faee;
+            border-left: 5px solid #e63946;
+            padding: 15px 20px;
+            margin: 20px 0 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .mini-assignment h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #1d3557;
+            margin: 0 0 8px 0;
+        }
+        .mini-assignment p {
+            font-family: 'Kalam', cursive;
+            font-size: 15px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .mini-link {
+            display: inline-block;
+            background-color: #1d3557;
+            color: #fff !important;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .mini-link:hover { background-color: #e63946; }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAV BAR -->
+    <div class="no-print-bar">
+        <button class="btn-nav btn-download" onclick="generatePDF()">📥 Download PDF</button>
+        <a href="index.html" class="btn-nav">🏠 Home</a>
+        <a href="assignments.html" class="btn-nav">📄 Assignments Bank</a>
+        <a href="html5.html" class="btn-nav" style="background-color: #ae2012;">🌐 HTML5</a>
+        <a href="css3.html" class="btn-nav">🎨 CSS3</a>
+        <a href="javascript.html" class="btn-nav">⚡ JavaScript</a>
+        <a href="advanced-js.html" class="btn-nav">🚀 Adv JS</a>
+        <a href="bootstrap.html" class="btn-nav">🅱️ Bootstrap</a>
+        <a href="reactjs.html" class="btn-nav">⚛️ ReactJS</a>
+        <a href="nextjs.html" class="btn-nav">▲ NextJS</a>
+        
+        <a href="python.html" class="btn-nav">🐍 Python</a>
+        <a href="nodejs.html" class="btn-nav">🟢 NodeJS</a>
+        <a href="mysql.html" class="btn-nav">🗄️ MySQL</a>
+        <a href="mongodb.html" class="btn-nav">🍃 MongoDB</a>
+        <a href="django.html" class="btn-nav">🎸 Django</a>
+        <a href="expressjs.html" class="btn-nav">🚂 ExpressJS</a>
+        <a href="genai.html" class="btn-nav">🤖 Gen AI</a>
+        <a href="deployment.html" class="btn-nav">☁️ Deployment</a>
+    </div>
+
+    <main class="notebook-container" id="notes-content">
+        <section class="paper-sheet">
+            <div class="notebook-header">
+                <h1 class="notebook-title">🌐 HTML5 Complete Handwritten Notebook</h1>
+                <p style="font-family: 'Kalam', cursive; text-align: center; color: #555;">Full Stack Development Lecture Series • Instructor: Somesh Hadve</p>
+            </div>
+
+            <!-- ==========================================
+                 LECTURE 01 | MODULE 01
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 01 | Module 01: Foundations & Text Formatting</span>
+                <span class="lecture-badge">Day 1</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">1. Intro to Full Stack Development (FSD)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Building both the client side (front-end) and server side (back-end) of web applications.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Full Stack Development encompasses the entire software layer stack including UI/UX design, client logic, backend server API design, data storage, database management, and cloud deployment.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables software engineers to independently architect, build, test, and maintain end-to-end web applications.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Developing Amazon: HTML/CSS/JS for UI, Node/Python for order processing APIs, and MySQL/MongoDB for storing products and user accounts.</div>
+                <div class="code-box">// Client Side (Front-End) &lt;--- APIs ---&gt; Server Side (Back-End) &lt;---&gt; Database</div>
+                <div class="task-box">Task: Draw a neat flowchart showing how a web browser communicates with a server backend and database.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">2. Intro to HTML (HyperText Markup Language)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The foundational standard markup language used to structure web documents.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> HTML uses markup tags to tell web browsers how to format text, display images, embed videos, and hyperlink pages together across the internet.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Serves as the skeletal framework of every single website on the Internet.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Web browser reading plain markup text and converting it into visual buttons, text blocks, and clickable hyperlinks.</div>
+                <div class="code-box">&lt;h1&gt;Welcome to Full Stack Web Development!&lt;/h1&gt;</div>
+                <div class="task-box">Task: Write a paragraph in your notebook explaining why HTML is classified as a markup language rather than a programming language.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">3. Basic HTML5 Document Structure</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The essential boilerplate layout mandatory for valid modern web documents.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A standardized hierarchy comprising `&lt;!DOCTYPE html&gt;`, `&lt;html&gt;`, `&lt;head&gt;`, and `&lt;body&gt;` tags ensuring proper rendering by browsers.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Tells web browsers the document standard, character encoding, title metadata, and body display area.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Standard starter template used when creating any `.html` file.</div>
+                <div class="code-box">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+                <div class="task-box">Task: Create a file `index.html`, paste the HTML5 standard boilerplate, and open it in Google Chrome.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">4. HTML Elements & Tags</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> The core building blocks of HTML web pages.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> An HTML element consists of a starting tag (`&lt;tag&gt;`), content in between, and a closing tag (`&lt;/tag&gt;`). Self-closing tags do not require a separate closing tag.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Instructs the browser engine how to interpret and format specific pieces of content.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Heading element `&lt;p&gt;Sample Text&lt;/p&gt;` vs Void/Self-closing element `&lt;img src="pic.jpg" /&gt;`.</div>
+                <div class="code-box">&lt;p&gt;This is an HTML Element containing content.&lt;/p&gt;</div>
+                <div class="task-box">Task: List 5 container elements and 3 void/self-closing elements side-by-side in your notebook.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">5. Heading Tags (&lt;h1&gt; to &lt;h6&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Structural heading tags defining page topic hierarchy.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Six levels of section headings from `&lt;h1&gt;` (most important/largest) down to `&lt;h6&gt;` (least important/smallest).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Establishes document structure for screen readers, web accessibility, and Search Engine Optimization (SEO).</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `&lt;h1&gt;` for primary title, `&lt;h2&gt;` for major sections, `&lt;h3&gt;` for sub-topics.</div>
+                <div class="code-box">&lt;h1&gt;Main Title (H1)&lt;/h1&gt;
+&lt;h2&gt;Section Title (H2)&lt;/h2&gt;
+&lt;h3&gt;Sub-Section (H3)&lt;/h3&gt;</div>
+                <div class="task-box">Task: Create a mini blog post structure using all six heading levels sequentially.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">6. Paragraph Tag (&lt;p&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Container element for grouping text into distinct paragraph blocks.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A block-level tag that automatically adds top and bottom margins around text content.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Organizes body copy into clean, readable text paragraphs.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Grouping blog article body copy into separate readable blocks.</div>
+                <div class="code-box">&lt;p&gt;Full stack developer training empowers students to build end-to-end applications.&lt;/p&gt;</div>
+                <div class="task-box">Task: Write two separate `&lt;p&gt;` tags and inspect their default spacing in Chrome DevTools.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">7. Bold (&lt;b&gt; &amp; &lt;strong&gt;) Tags</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Tags used to emphasize text visually and semantically.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `&lt;b&gt;` makes text bold visually without extra importance. `&lt;strong&gt;` bolds text and marks it semantically as urgent/important.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Draws reader attention to key terms, warnings, or highlighted phrases.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `&lt;strong&gt;Warning:&lt;/strong&gt; Password is required.`</div>
+                <div class="code-box">&lt;p&gt;Please read the &lt;strong&gt;Important Notice&lt;/strong&gt; carefully.&lt;/p&gt;</div>
+                <div class="task-box">Task: Compare `&lt;b&gt;` and `&lt;strong&gt;` in screen reader output mode.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">8. Underline &amp; Italic Tags (&lt;u&gt;, &lt;i&gt;, &lt;em&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Inline styling tags for emphasis, terms, or underline decorations.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `&lt;u&gt;` adds an underline, `&lt;i&gt;` italicizes text visually, while `&lt;em&gt;` indicates semantic emphasis.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Highlight technical vocabulary, foreign phrases, or titles of works.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `&lt;em&gt;Latin:&lt;/em&gt; &lt;i&gt;Carpe Diem&lt;/i&gt; - &lt;u&gt;Seize the Day&lt;/u&gt;.`</div>
+                <div class="code-box">&lt;p&gt;Learn &lt;em&gt;HTML5&lt;/em&gt; and &lt;u&gt;CSS3&lt;/u&gt; thoroughly.&lt;/p&gt;</div>
+                <div class="task-box">Task: Create a single sentence using `&lt;b&gt;`, `&lt;i&gt;`, `&lt;u&gt;`, and `&lt;em&gt;` tags together.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">9. Line Break Tag (&lt;br&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Forces an inline line break without creating a new paragraph block.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A void self-closing tag (`&lt;br&gt;`) that forces content following it to start on the next line immediately.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Formats physical addresses, poems, or short line breaks where paragraph margin spacing is undesired.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Writing multi-line street address blocks inside a single container tag.</div>
+                <div class="code-box">&lt;p&gt;Somesh Hadve Training Hub&lt;br&gt;Sector 15, Tech City&lt;br&gt;Mumbai, India&lt;/p&gt;</div>
+                <div class="task-box">Task: Format a 4-line poem using a single `&lt;p&gt;` tag with `&lt;br&gt;` tags.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">10. Horizontal Rule Tag (&lt;hr&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Creates a thematic divider line separating content blocks.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> A void/self-closing tag (`&lt;hr&gt;`) that renders a visual horizontal line across its parent container width.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Visually splits distinct topics, chapter breaks, or sections within a single HTML page.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Placing a line separator between a blog post and its comment section.</div>
+                <div class="code-box">&lt;h2&gt;Section 1: Introduction&lt;/h2&gt;
+&lt;p&gt;Content here...&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Section 2: Details&lt;/h2&gt;</div>
+                <div class="task-box">Task: Add an `&lt;hr&gt;` separator between two heading blocks and inspect its rendering.</div>
+            </div>
+
+            <!-- L1 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 1 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Master basic structure, headings, paragraphs, and formatting elements.</p>
+                <p><strong>Action:</strong> Click the live link below, analyze the text structure, and clone the webpage completely using ONLY the tags taught today (no CSS). Build it locally in your VS Code.</p>
+                <a href="./images/L1 assignment.jpg" target="_blank" class="mini-link">🔗 Clone Reference: Omelatte Recipe</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 02 | MODULE 02
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 02 | Module 02: Links, Media & Semantic HTML</span>
+                <span class="lecture-badge">Day 2</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">11. Hyperlinks &amp; Anchor Tag (&lt;a&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Navigational elements linking web pages or external resources.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> The `&lt;a&gt;` tag creates clickable links using the `href` (hypertext reference) attribute to specify the URL destination.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Connects pages internally or externally and links resources like email (`mailto:`) or downloadable files.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Clicking a link to navigate from home page to contact page or opening in new tab (`target="_blank"`).</div>
+                <div class="code-box">&lt;a href="https://google.com" target="_blank" rel="noopener"&gt;Visit Google&lt;/a&gt;
+&lt;a href="mailto:contact@somesh.com"&gt;Email Us&lt;/a&gt;</div>
+                <div class="task-box">Task: Build a mini navigation menu linking to 3 different external websites opening in a new tab.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">12. Images &amp; Media (&lt;img&gt;, &lt;video&gt;, &lt;audio&gt;, &lt;iframe&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Multimedia elements for embedding images, audio tracks, video streams, and external frames.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Standard HTML5 tags designed to render graphic formats (`&lt;img&gt;`), audio files (`&lt;audio&gt;`), video streams (`&lt;video&gt;`), and external web pages (`&lt;iframe&gt;`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enhances UI with visual, acoustic, and embedded interactive content.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Showing user avatars, playing tutorial videos, streaming audio clips, or embedding YouTube/Google Maps frames.</div>
+                <div class="code-box">&lt;img src="logo.png" alt="Company Logo" width="200" /&gt;
+&lt;audio controls src="audio.mp3"&gt;&lt;/audio&gt;
+&lt;video width="320" height="240" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+&lt;iframe src="https://maps.google.com" width="400" height="300"&gt;&lt;/iframe&gt;</div>
+                <div class="task-box">Task: Create a multimedia gallery embedding an image with alt text, an audio track with controls, and a YouTube video iframe.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">13. HTML Lists (&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Elements for presenting items in sequential or non-sequential bullet points.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `&lt;ul&gt;` creates bulleted unordered lists, `&lt;ol&gt;` creates numbered ordered lists, `&lt;li&gt;` represents individual list items, and defines description lists.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Organizes structured content such as navigation menus, feature bullet lists, and step-by-step instructions.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Navigation menus (`&lt;ul&gt;&lt;li&gt;Home&lt;/li&gt;&lt;/ul&gt;`) or numbered steps (`&lt;ol&gt;&lt;li&gt;Step 1&lt;/li&gt;&lt;/ol&gt;`).</div>
+                <div class="code-box">&lt;ul&gt;
+  &lt;li&gt;HTML5&lt;/li&gt;
+  &lt;li&gt;CSS3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol type="1"&gt;
+  &lt;li&gt;Front-End&lt;/li&gt;
+  &lt;li&gt;Back-End&lt;/li&gt;
+&lt;/ol&gt;</div>
+                <div class="task-box">Task: Build a nested list representing a course curriculum syllabus with main modules and sub-topics.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">14. Semantic Tags (header, nav, main, section, article, footer)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Tags that convey explicit structural meaning to both web browsers and developers.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `header`, `nav`, `main`, `section`, `article`, and `footer` tags replace non-semantic generic `div` tags to describe content roles.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Improves SEO (Search Engine Optimization (google, yahoo, bing)), code maintainability, and accessibility compliance for screen readers.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `<header>` for top bar, `<nav>` for site menu, `<main>` for primary unique content, `<footer>` for copyright links.</div>
+                <div class="code-box">&lt;header&gt;&lt;h1&gt;Logo&lt;/h1&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;article&gt;&lt;h2&gt;Blog Title&lt;/h2&gt;&lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;&amp;copy; 2025 Somesh Hadve&lt;/footer&gt;</div>
+                <div class="task-box">Task: Draw a full page semantic wireframe layout showing standard header, nav, main, section, article, and footer placement.</div>
+            </div>
+
+            <!-- L2 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 2 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Implement Media, Lists, Links, and Semantic Tags.</p>
+                <p><strong>Action:</strong> Open the recipe challenge link below. Do NOT use CSS. Recreate the pure HTML structure: use `<img>` for the food picture, `<ul>` and `<ol>` for ingredients/instructions, and wrap it all cleanly in `<main>` and `<section>` tags.</p>
+                <a href="https://travefy.com/blog-post/travel-database" target="_blank" class="mini-link">🔗 Clone Reference: Recipe Page</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 03 | MODULE 03
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 03 | Module 03: Tables, CSS Types & Attributes</span>
+                <span class="lecture-badge">Day 3</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">15. HTML Tables (&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Grid layout markup for presenting tabular data in rows and columns.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `&lt;table&gt;` `&lt;tr&gt;` (table row), `&lt;th&gt;` (header cell), and `&lt;td&gt;` (data cell) along with `colspan`/`rowspan` attributes.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Displays structured dataset information such as schedules, pricing plans, and financial statements.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Rendering a 3x3 student report card table with column headings.</div>
+                <div class="code-box">&lt;table border="1"&gt;
+  
+    &lt;tr&gt;
+    &lt;th&gt;Subject&lt;/th&gt;
+    &lt;th&gt;Marks&lt;/th&gt;
+    &lt;/tr&gt;
+  
+    &lt;tr&gt;
+    &lt;td&gt;HTML5&lt;/td&gt;
+    &lt;td&gt;95&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</div>
+                <div class="task-box">Task: Create a student grade sheet table incorporating `colspan="2"` for merged heading cells.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">16. Types of CSS (Inline, Internal, External)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Three techniques used to attach CSS styling rules to HTML elements.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> **Inline** uses `style=""` attribute inside elements. **Internal** uses `&lt;style&gt;` block in `&lt;head&gt;`. **External** uses `&lt;link rel="stylesheet"&gt;` to connect external `.css` files.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Provides flexibility for quick inline tweaks, page-specific styles, or clean project-wide style management.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Using External CSS for master application themes to maintain separation of concerns.</div>
+                <div class="code-box">&lt;!-- Inline --&gt; &lt;h1 style="color: red;"&gt;Text&lt;/h1&gt;
+&lt;!-- Internal --&gt; &lt;style&gt; h1 { color: red; } &lt;/style&gt;
+&lt;!-- External --&gt; &lt;link rel="stylesheet" href="style.css"&gt;</div>
+                <div class="task-box">Task: Apply Inline, Internal, and External CSS to three separate paragraphs and verify specificity priorities.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">17. Class &amp; ID Attributes</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Global attributes used to target and identify HTML elements.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `class` assigns non-unique identifiers shared by multiple elements. `id` assigns a unique, single-use identifier to an element on a page.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables targeted CSS styling and precise JavaScript DOM selection/manipulation.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `.btn` class applied to 10 buttons; `#main-header` id applied to only 1 primary header.</div>
+                <div class="code-box">&lt;button class="btn primary-btn"&gt;Submit&lt;/button&gt;
+&lt;div id="hero-section"&gt;Welcome&lt;/div&gt;</div>
+                <div class="task-box">Task: Write HTML markup with 3 elements sharing 1 class name and 1 element with a unique ID attribute.</div>
+            </div>
+
+            <!-- L3 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 3 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Create a table using HTML & CSS</p>
+                <p><strong>Action:</strong> Click the reference link to see a standard financial/sports scoreboard table. Recreate the table structure using `<thead>`, `<tbody>`, `colspan`, and `rowspan`. Add basic `class` and `id` attributes to prepare it for styling.</p>
+                <a href="./images/1.3-HTML-table-CSS.png" target="_blank" class="mini-link">🔗 Clone Reference: Standard Data Tables Structure</a>
+            </div>
+
+
+            <!-- ==========================================
+                 LECTURE 04 | MODULE 04
+            =========================================== -->
+            <div class="lecture-header">
+                <span>📅 Lecture 04 | Module 04: SEO, Meta Tags, Entities & Forms</span>
+                <span class="lecture-badge">Day 4</span>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">18. Meta Tags &amp; SEO (Search Engine Optimization) Basics</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Metadata tags located inside `&lt;head&gt;` providing data about the HTML document to search engines and browsers.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Invisible elements specifying character sets, viewport scaling for mobile responsiveness, search descriptions, and keywords.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Drives Search Engine Optimization (SEO), indexing, social media preview cards, and mobile display scaling.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> `meta charset="UTF-8"`, `meta name="viewport"`, `meta name="description"`.</div>
+                <div class="code-box">&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="description" content="Somesh Hadve Full Stack Developer Notes"&gt;</div>
+                <div class="task-box">Task: Add essential mobile viewport and meta description tags to your HTML head section.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">19. Entities &amp; Symbols</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Text escape codes used to display reserved HTML characters and special symbols safely.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> Special string sequences starting with `&amp;` and ending with `;` representing characters like `<` (`&amp;lt;`), `>` (`&amp;gt;`), copyright (`&amp;copy;`), or non-breaking spaces (`&amp;nbsp;`).</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Prevents browsers from misinterpreting raw HTML characters like `<` or `>` as markup code.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Displaying code snippets on screen: `&amp;lt;div&amp;gt;` prints as `<div>`.</div>
+                <div class="code-box">&lt;p&gt;Copyright &amp;copy; 2025 Somesh Hadve. 5 &amp;lt; 10 &amp;amp; 20 &amp;gt; 15&lt;/p&gt;</div>
+                <div class="task-box">Task: Write a paragraph using `&amp;copy;`, `&amp;trade;`, `&amp;reg;`, `&amp;nbsp;`, and `&amp;amp;` entities.</div>
+            </div>
+
+            <div class="topic-box">
+                <h2 class="topic-title">20. HTML Forms (&lt;form&gt;, &lt;input&gt;, &lt;select&gt;, &lt;textarea&gt;)</h2>
+                <div class="topic-field"><span class="field-label">Meaning:</span> Interactive components used to collect user inputs and send datasets to a web server.</div>
+                <div class="topic-field"><span class="field-label">Definition:</span> `&lt;form&gt;` container holding input elements like text, password, email, radio, checkbox, file, date, dropdown `&lt;select&gt;`, `&lt;textarea&gt;`, and `&lt;button&gt;`.</div>
+                <div class="topic-field"><span class="field-label">Purpose:</span> Enables user interaction, authentication, search queries, feedback, and data submissions.</div>
+                <div class="topic-field"><span class="field-label">Example:</span> Login forms, contact forms, user registration forms, and search bars.</div>
+                <div class="code-box">&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="user_email" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</div>
+                <div class="task-box">Task: Build a complete user sign-up form containing Name, Email, Password, Gender radio buttons, and Submit button.</div>
+            </div>
+
+            <!-- L4 Assignment -->
+            <div class="mini-assignment">
+                <h3>📝 Lecture 4 Lab Assignment</h3>
+                <p><strong>Goal:</strong> Form validation and input types.</p>
+                <p><strong>Action:</strong> Analyze the live contact/survey form link. Recreate the structure locally strictly in HTML5 using `required` attributes, correct, dropdowns, textareas, and radio buttons. Ignore the visual CSS styling entirely.</p>
+                <a href="./images/student-registration-form-in-html-code.jpg" target="_blank" class="mini-link">🔗 Clone Reference: Survey Form</a>
+            </div>
+
+
+             
+           
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="css3.html" class="menu-link" style="font-size: 20px;">➡️ Proceed to Next Subject: CSS3 Notes</a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('notes-content');
+            const navBar = document.querySelector('.no-print-bar');
+            navBar.style.display = 'none';
+
+            const opt = {
+                margin:       0.3,
+                filename:     'HTML5_Handwritten_Notes_Somesh_Hadve.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                navBar.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
